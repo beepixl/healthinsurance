@@ -1,0 +1,142 @@
+import '../flutter_flow/flutter_flow_util.dart';
+import 'dart:ui';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+import 'upload_policy_container_model.dart';
+export 'upload_policy_container_model.dart';
+
+class UploadPolicyContainerWidget extends StatefulWidget {
+  const UploadPolicyContainerWidget({super.key});
+
+  @override
+  State<UploadPolicyContainerWidget> createState() =>
+      _UploadPolicyContainerWidgetState();
+}
+
+class _UploadPolicyContainerWidgetState
+    extends State<UploadPolicyContainerWidget> {
+  late UploadPolicyContainerModel _model;
+
+  @override
+  void setState(VoidCallback callback) {
+    super.setState(callback);
+    _model.onUpdate();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _model = createModel(context, () => UploadPolicyContainerModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
+  }
+
+  @override
+  void dispose() {
+    _model.maybeDispose();
+
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      decoration: BoxDecoration(
+        color: Color(0xFFFFE7E5),
+        borderRadius: BorderRadius.circular(24.0),
+      ),
+      child: Padding(
+        padding: EdgeInsetsDirectional.fromSTEB(16.0, 20.0, 16.0, 20.0),
+        child: Column(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              decoration: BoxDecoration(),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Flexible(
+                    child: Container(
+                      height: 56.0,
+                      decoration: BoxDecoration(),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Policy Name',
+                            style: FlutterFlowTheme.of(context)
+                                .headlineSmall
+                                .override(
+                                  fontFamily: 'Anek Latin',
+                                  fontSize: 14.0,
+                                  letterSpacing: 0.0,
+                                ),
+                          ),
+                          Text(
+                            'Please upload a valid Health Insurance\ndocument',
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Anek Latin',
+                                  color: Color(0xFFD34528),
+                                  letterSpacing: 0.0,
+                                ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Container(
+                    height: 69.0,
+                    decoration: BoxDecoration(),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                          width: 48.0,
+                          height: 48.0,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                          ),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(48.0),
+                            child: SvgPicture.asset(
+                              'packages/health_insurance/assets/images/Button.svg',
+                              width: 48.0,
+                              height: 48.0,
+                              fit: BoxFit.contain,
+                            ),
+                          ),
+                        ),
+                        Text(
+                          'Upload',
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Anek Latin',
+                                    color: Color(0xFF797979),
+                                    fontSize: 14.0,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ].divide(SizedBox(width: 24.0)),
+              ),
+            ),
+          ].divide(SizedBox(height: 16.0)),
+        ),
+      ),
+    );
+  }
+}
