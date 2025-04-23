@@ -2,18 +2,17 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import '../../compare_plans/compare_plans_widget.dart';
-import '../../pages/home_page/home_page_widget.dart';
-import '../../pages/plan_recommendadtion/plan_recommendadtion_widget.dart';
-import '../../pages/policy_assit/policy_assit_widget.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 
+import '/main.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:ff_commons/flutter_flow/lat_lng.dart';
 import 'package:ff_commons/flutter_flow/place.dart';
-import '../flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_util.dart';
 import 'serialization_util.dart';
+
+import '/index.dart';
 
 export 'package:go_router/go_router.dart';
 export 'serialization_util.dart';
@@ -56,17 +55,44 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: PolicyAssitWidget.routeName,
           path: PolicyAssitWidget.routePath,
-          builder: (context, params) => PolicyAssitWidget(),
+          builder: (context, params) => PolicyAssitWidget(
+            policyName: params.getParam(
+              'policyName',
+              ParamType.String,
+            ),
+            customerID: params.getParam(
+              'customerID',
+              ParamType.String,
+            ),
+          ),
         ),
         FFRoute(
           name: PlanRecommendadtionWidget.routeName,
           path: PlanRecommendadtionWidget.routePath,
-          builder: (context, params) => PlanRecommendadtionWidget(),
+          builder: (context, params) => PlanRecommendadtionWidget(
+            cutomerID: params.getParam(
+              'cutomerID',
+              ParamType.String,
+            ),
+          ),
         ),
         FFRoute(
           name: ComparePlansWidget.routeName,
           path: ComparePlansWidget.routePath,
-          builder: (context, params) => ComparePlansWidget(),
+          builder: (context, params) => ComparePlansWidget(
+            customerID: params.getParam(
+              'customerID',
+              ParamType.String,
+            ),
+            planID: params.getParam(
+              'planID',
+              ParamType.String,
+            ),
+            policyExpiryDate: params.getParam(
+              'policyExpiryDate',
+              ParamType.String,
+            ),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -116,7 +142,6 @@ extension _GoRouterStateExtensions on GoRouterState {
       extra != null ? extra as Map<String, dynamic> : {};
   Map<String, dynamic> get allParams => <String, dynamic>{}
     ..addAll(pathParameters)
-    // ..addAll(uri.queryParameters)
     ..addAll(extraMap);
   TransitionInfo get transitionInfo => extraMap.containsKey(kTransitionInfoKey)
       ? extraMap[kTransitionInfoKey] as TransitionInfo
@@ -273,12 +298,12 @@ class RootPageContext {
       );
 }
 
-extension GoRouterLocationExtension on GoRouter {
-  // String getCurrentLocation() {
-  //   final RouteMatch lastMatch = routerDelegate.currentConfiguration.last;
-  //   final RouteMatchList matchList = lastMatch is ImperativeRouteMatch
-  //       ? lastMatch.matches
-  //       : routerDelegate.currentConfiguration;
-  //   return matchList.uri.toString();
-  // }
-}
+// extension GoRouterLocationExtension on GoRouter {
+//   String getCurrentLocation() {
+//     final RouteMatch lastMatch = routerDelegate.currentConfiguration.last;
+//     final RouteMatchList matchList = lastMatch is ImperativeRouteMatch
+//         ? lastMatch.matches
+//         : routerDelegate.currentConfiguration;
+//     return matchList.uri.toString();
+//   }
+// }

@@ -1,5 +1,5 @@
-import '../flutter_flow/flutter_flow_util.dart';
-import '../flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +10,16 @@ import 'compare_plans_model.dart';
 export 'compare_plans_model.dart';
 
 class ComparePlansWidget extends StatefulWidget {
-  const ComparePlansWidget({super.key});
+  const ComparePlansWidget({
+    super.key,
+    required this.customerID,
+    required this.planID,
+    this.policyExpiryDate,
+  });
+
+  final String? customerID;
+  final String? planID;
+  final String? policyExpiryDate;
 
   static String routeName = 'comparePlans';
   static String routePath = '/comparePlans';
@@ -104,6 +113,12 @@ class _ComparePlansWidgetState extends State<ComparePlansWidget> {
                                     color: Color(0xFF2E2E2E),
                                     fontSize: 14.0,
                                     letterSpacing: 0.0,
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .titleMedium
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .titleMedium
+                                        .fontStyle,
                                   ),
                         ),
                       ),
@@ -203,6 +218,16 @@ class _ComparePlansWidgetState extends State<ComparePlansWidget> {
                                                     fontFamily: 'Anek Latin',
                                                     color: Color(0xFF2E2E2E),
                                                     letterSpacing: 0.0,
+                                                    fontWeight:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMedium
+                                                            .fontWeight,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMedium
+                                                            .fontStyle,
                                                   ),
                                             ),
                                             Flexible(
@@ -219,6 +244,11 @@ class _ComparePlansWidgetState extends State<ComparePlansWidget> {
                                                       letterSpacing: 0.0,
                                                       fontWeight:
                                                           FontWeight.normal,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .fontStyle,
                                                     ),
                                               ),
                                             ),
@@ -251,6 +281,14 @@ class _ComparePlansWidgetState extends State<ComparePlansWidget> {
                                                 .secondaryBackground,
                                             fontSize: 14.0,
                                             letterSpacing: 0.0,
+                                            fontWeight:
+                                                FlutterFlowTheme.of(context)
+                                                    .titleMedium
+                                                    .fontWeight,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .titleMedium
+                                                    .fontStyle,
                                           ),
                                       elevation: 0.0,
                                       borderRadius: BorderRadius.circular(24.0),
@@ -304,6 +342,12 @@ class _ComparePlansWidgetState extends State<ComparePlansWidget> {
                                     color: Color(0xFF2E2E2E),
                                     fontSize: 14.0,
                                     letterSpacing: 0.0,
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
                                   ),
                             ),
                             Flexible(
@@ -330,6 +374,14 @@ class _ComparePlansWidgetState extends State<ComparePlansWidget> {
                                               .override(
                                                 fontFamily: 'Anek Latin',
                                                 letterSpacing: 0.0,
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
                                               ),
                                         ),
                                         Card(
@@ -432,6 +484,12 @@ class _ComparePlansWidgetState extends State<ComparePlansWidget> {
                                                                               16.0,
                                                                           letterSpacing:
                                                                               0.0,
+                                                                          fontWeight: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontWeight,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
                                                                         ),
                                                                   ),
                                                                   ClipRRect(
@@ -457,8 +515,6 @@ class _ComparePlansWidgetState extends State<ComparePlansWidget> {
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Anek Latin',
                                                                       color: Color(
                                                                           0xFF797979),
                                                                       fontSize:
@@ -468,6 +524,10 @@ class _ComparePlansWidgetState extends State<ComparePlansWidget> {
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .normal,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontStyle,
                                                                     ),
                                                               ),
                                                             ].divide(SizedBox(
@@ -607,6 +667,12 @@ class _ComparePlansWidgetState extends State<ComparePlansWidget> {
                                                                               16.0,
                                                                           letterSpacing:
                                                                               0.0,
+                                                                          fontWeight: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontWeight,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
                                                                         ),
                                                                   ),
                                                                   ClipRRect(
@@ -643,6 +709,10 @@ class _ComparePlansWidgetState extends State<ComparePlansWidget> {
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .normal,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontStyle,
                                                                     ),
                                                               ),
                                                             ].divide(SizedBox(
@@ -782,6 +852,12 @@ class _ComparePlansWidgetState extends State<ComparePlansWidget> {
                                                                               16.0,
                                                                           letterSpacing:
                                                                               0.0,
+                                                                          fontWeight: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontWeight,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
                                                                         ),
                                                                   ),
                                                                   ClipRRect(
@@ -818,6 +894,10 @@ class _ComparePlansWidgetState extends State<ComparePlansWidget> {
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .normal,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontStyle,
                                                                     ),
                                                               ),
                                                             ].divide(SizedBox(
@@ -957,6 +1037,12 @@ class _ComparePlansWidgetState extends State<ComparePlansWidget> {
                                                                               16.0,
                                                                           letterSpacing:
                                                                               0.0,
+                                                                          fontWeight: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontWeight,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
                                                                         ),
                                                                   ),
                                                                   ClipRRect(
@@ -993,6 +1079,10 @@ class _ComparePlansWidgetState extends State<ComparePlansWidget> {
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .normal,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontStyle,
                                                                     ),
                                                               ),
                                                             ].divide(SizedBox(
@@ -1132,6 +1222,12 @@ class _ComparePlansWidgetState extends State<ComparePlansWidget> {
                                                                               16.0,
                                                                           letterSpacing:
                                                                               0.0,
+                                                                          fontWeight: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontWeight,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
                                                                         ),
                                                                   ),
                                                                   ClipRRect(
@@ -1168,6 +1264,10 @@ class _ComparePlansWidgetState extends State<ComparePlansWidget> {
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .normal,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontStyle,
                                                                     ),
                                                               ),
                                                             ].divide(SizedBox(
@@ -1307,6 +1407,12 @@ class _ComparePlansWidgetState extends State<ComparePlansWidget> {
                                                                               16.0,
                                                                           letterSpacing:
                                                                               0.0,
+                                                                          fontWeight: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontWeight,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
                                                                         ),
                                                                   ),
                                                                   ClipRRect(
@@ -1343,6 +1449,10 @@ class _ComparePlansWidgetState extends State<ComparePlansWidget> {
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .normal,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontStyle,
                                                                     ),
                                                               ),
                                                             ].divide(SizedBox(
@@ -1482,6 +1592,12 @@ class _ComparePlansWidgetState extends State<ComparePlansWidget> {
                                                                               16.0,
                                                                           letterSpacing:
                                                                               0.0,
+                                                                          fontWeight: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontWeight,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
                                                                         ),
                                                                   ),
                                                                   ClipRRect(
@@ -1518,6 +1634,10 @@ class _ComparePlansWidgetState extends State<ComparePlansWidget> {
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .normal,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontStyle,
                                                                     ),
                                                               ),
                                                             ].divide(SizedBox(
@@ -1572,6 +1692,14 @@ class _ComparePlansWidgetState extends State<ComparePlansWidget> {
                                             .override(
                                               fontFamily: 'Anek Latin',
                                               letterSpacing: 0.0,
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontStyle,
                                             ),
                                       ),
                                       Card(
@@ -1670,6 +1798,12 @@ class _ComparePlansWidgetState extends State<ComparePlansWidget> {
                                                                             16.0,
                                                                         letterSpacing:
                                                                             0.0,
+                                                                        fontWeight: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontWeight,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
                                                                       ),
                                                                 ),
                                                                 ClipRRect(
@@ -1707,6 +1841,10 @@ class _ComparePlansWidgetState extends State<ComparePlansWidget> {
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .normal,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontStyle,
                                                                   ),
                                                             ),
                                                           ].divide(SizedBox(
@@ -1818,6 +1956,11 @@ class _ComparePlansWidgetState extends State<ComparePlansWidget> {
                                                       letterSpacing: 0.0,
                                                       fontWeight:
                                                           FontWeight.w600,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelMedium
+                                                              .fontStyle,
                                                     ),
                                             hintText: 'Ask me anything?',
                                             hintStyle:
@@ -1829,6 +1972,11 @@ class _ComparePlansWidgetState extends State<ComparePlansWidget> {
                                                       letterSpacing: 0.0,
                                                       fontWeight:
                                                           FontWeight.w600,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelMedium
+                                                              .fontStyle,
                                                     ),
                                             enabledBorder: OutlineInputBorder(
                                               borderSide: BorderSide(
@@ -1887,6 +2035,14 @@ class _ComparePlansWidgetState extends State<ComparePlansWidget> {
                                                 color: Color(0xFF797979),
                                                 fontSize: 14.0,
                                                 letterSpacing: 0.0,
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
                                               ),
                                           cursorColor:
                                               FlutterFlowTheme.of(context)

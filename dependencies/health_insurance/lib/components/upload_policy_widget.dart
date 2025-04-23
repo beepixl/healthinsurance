@@ -1,5 +1,3 @@
-import '/pages/policy_assit/policy_assit_widget.dart';
-
 import '/backend/api_requests/api_calls.dart';
 import '/components/upload_policy_container2_widget.dart';
 import '/components/upload_policy_container_widget.dart';
@@ -8,7 +6,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
 import 'dart:ui';
 import '/custom_code/widgets/index.dart' as custom_widgets;
-
+import '/index.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -82,6 +80,11 @@ class _UploadPolicyWidgetState extends State<UploadPolicyWidget> {
                       fontFamily: 'Anek Latin',
                       fontSize: 14.0,
                       letterSpacing: 0.0,
+                      fontWeight: FlutterFlowTheme.of(context)
+                          .headlineMedium
+                          .fontWeight,
+                      fontStyle:
+                          FlutterFlowTheme.of(context).headlineMedium.fontStyle,
                     ),
               ),
               Text(
@@ -93,6 +96,8 @@ class _UploadPolicyWidgetState extends State<UploadPolicyWidget> {
                       fontSize: 14.0,
                       letterSpacing: 0.0,
                       fontWeight: FontWeight.normal,
+                      fontStyle:
+                          FlutterFlowTheme.of(context).titleMedium.fontStyle,
                     ),
               ),
               Container(
@@ -118,6 +123,9 @@ class _UploadPolicyWidgetState extends State<UploadPolicyWidget> {
                               color: FlutterFlowTheme.of(context).secondary,
                               letterSpacing: 0.0,
                               fontWeight: FontWeight.w500,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .fontStyle,
                             ),
                       ),
                     ].divide(SizedBox(width: 10.0)),
@@ -161,7 +169,19 @@ class _UploadPolicyWidgetState extends State<UploadPolicyWidget> {
                     file: _model.uploadedLocalFile,
                   );
 
-                  context.pushNamed('policyAssit');
+                  context.pushNamed(
+                    PolicyAssitWidget.routeName,
+                    queryParameters: {
+                      'policyName': serializeParam(
+                        'Policy Name',
+                        ParamType.String,
+                      ),
+                      'customerID': serializeParam(
+                        'customerID',
+                        ParamType.String,
+                      ),
+                    }.withoutNulls,
+                  );
 
                   safeSetState(() {});
                 },
@@ -197,7 +217,19 @@ class _UploadPolicyWidgetState extends State<UploadPolicyWidget> {
                 onPressed: () async {
                   Navigator.pop(context);
 
-                  context.pushNamed(PolicyAssitWidget.routeName);
+                  context.pushNamed(
+                    PolicyAssitWidget.routeName,
+                    queryParameters: {
+                      'policyName': serializeParam(
+                        'Policy Name',
+                        ParamType.String,
+                      ),
+                      'customerID': serializeParam(
+                        'customerID',
+                        ParamType.String,
+                      ),
+                    }.withoutNulls,
+                  );
                 },
                 text: 'Submit',
                 options: FFButtonOptions(
@@ -211,6 +243,10 @@ class _UploadPolicyWidgetState extends State<UploadPolicyWidget> {
                         fontFamily: 'Anek Latin',
                         color: FlutterFlowTheme.of(context).secondaryBackground,
                         letterSpacing: 0.0,
+                        fontWeight:
+                            FlutterFlowTheme.of(context).titleMedium.fontWeight,
+                        fontStyle:
+                            FlutterFlowTheme.of(context).titleMedium.fontStyle,
                       ),
                   elevation: 0.0,
                   borderRadius: BorderRadius.circular(24.0),

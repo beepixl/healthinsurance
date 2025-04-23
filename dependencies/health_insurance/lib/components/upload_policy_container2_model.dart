@@ -1,4 +1,4 @@
-import '../flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:ui';
 import 'upload_policy_container2_widget.dart' show UploadPolicyContainer2Widget;
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';

@@ -2,6 +2,7 @@ import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
+import '/index.dart';
 import 'plan_recommendadtion_widget.dart' show PlanRecommendadtionWidget;
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
@@ -15,6 +16,8 @@ class PlanRecommendadtionModel
   ///  Local state fields for this page.
 
   bool plansLoaded = false;
+
+  String? selectedPlan;
 
   ///  State fields for stateful widgets in this page.
 

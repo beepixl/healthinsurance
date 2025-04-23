@@ -1,6 +1,3 @@
-import '/compare_plans/compare_plans_widget.dart';
-import '/pages/plan_recommendadtion/plan_recommendadtion_widget.dart';
-
 import '/backend/api_requests/api_calls.dart';
 import '/components/progress_indicator_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -9,7 +6,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/random_data_util.dart' as random_data;
-
+import '/index.dart';
 import 'dart:math' as math;
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +18,14 @@ import 'policy_assit_model.dart';
 export 'policy_assit_model.dart';
 
 class PolicyAssitWidget extends StatefulWidget {
-  const PolicyAssitWidget({super.key});
+  const PolicyAssitWidget({
+    super.key,
+    required this.policyName,
+    required this.customerID,
+  });
+
+  final String? policyName;
+  final String? customerID;
 
   static String routeName = 'policyAssit';
   static String routePath = '/policyAssit';
@@ -176,6 +180,16 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                         fontFamily:
                                                             'Anek Latin',
                                                         letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .titleMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .titleMedium
+                                                                .fontStyle,
                                                       ),
                                             ),
                                           ),
@@ -221,6 +235,14 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                         .secondaryBackground,
                                                 fontSize: 14.0,
                                                 letterSpacing: 0.0,
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .titleMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .titleMedium
+                                                        .fontStyle,
                                               ),
                                           elevation: 0.0,
                                           borderRadius:
@@ -230,7 +252,14 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                       FFButtonWidget(
                                         onPressed: () async {
                                           context.pushNamed(
-                                              ComparePlansWidget.routeName);
+                                            PlanRecommendadtionWidget.routeName,
+                                            queryParameters: {
+                                              'cutomerID': serializeParam(
+                                                '',
+                                                ParamType.String,
+                                              ),
+                                            }.withoutNulls,
+                                          );
                                         },
                                         text: 'Compare with our Plans',
                                         options: FFButtonOptions(
@@ -252,6 +281,14 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                         .primary,
                                                 fontSize: 14.0,
                                                 letterSpacing: 0.0,
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .titleMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .titleMedium
+                                                        .fontStyle,
                                               ),
                                           elevation: 0.0,
                                           borderSide: BorderSide(
@@ -354,6 +391,14 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                                       14.0,
                                                                   letterSpacing:
                                                                       0.0,
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
                                                                 ),
                                                           ),
                                                         ),
@@ -454,6 +499,14 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                                       14.0,
                                                                   letterSpacing:
                                                                       0.0,
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
                                                                 ),
                                                           ),
                                                         ),
@@ -554,6 +607,14 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                                       14.0,
                                                                   letterSpacing:
                                                                       0.0,
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
                                                                 ),
                                                           ),
                                                         ),
@@ -654,6 +715,14 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                                       14.0,
                                                                   letterSpacing:
                                                                       0.0,
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
                                                                 ),
                                                           ),
                                                         ),
@@ -754,6 +823,14 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                                       14.0,
                                                                   letterSpacing:
                                                                       0.0,
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
                                                                 ),
                                                           ),
                                                         ),
@@ -854,6 +931,14 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                                       14.0,
                                                                   letterSpacing:
                                                                       0.0,
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
                                                                 ),
                                                           ),
                                                         ),
@@ -910,6 +995,16 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                               Color(0xFF14181B),
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
                                                         ),
                                                   ),
                                                 ].divide(SizedBox(width: 8.0)),
@@ -996,6 +1091,14 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                                           14.0,
                                                                       letterSpacing:
                                                                           0.0,
+                                                                      fontWeight: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontWeight,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontStyle,
                                                                     ),
                                                               ),
                                                             ].divide(SizedBox(
@@ -1021,6 +1124,10 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w500,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
                                                                 ),
                                                           ),
                                                         ],
@@ -1147,6 +1254,10 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                                                 16.0,
                                                                             letterSpacing:
                                                                                 0.0,
+                                                                            fontWeight:
+                                                                                FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                            fontStyle:
+                                                                                FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                           ),
                                                                     ),
                                                                     Icon(
@@ -1193,6 +1304,8 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                                                 fontFamily: 'Anek Latin',
                                                                                 fontSize: 16.0,
                                                                                 letterSpacing: 0.0,
+                                                                                fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                               ),
                                                                         ),
                                                                         Transform
@@ -1229,6 +1342,8 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                                                 0.0,
                                                                             fontWeight:
                                                                                 FontWeight.w500,
+                                                                            fontStyle:
+                                                                                FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                           ),
                                                                     ),
                                                                   ].divide(SizedBox(
@@ -1362,6 +1477,10 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                                                 16.0,
                                                                             letterSpacing:
                                                                                 0.0,
+                                                                            fontWeight:
+                                                                                FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                            fontStyle:
+                                                                                FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                           ),
                                                                     ),
                                                                     Icon(
@@ -1408,6 +1527,8 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                                                 fontFamily: 'Anek Latin',
                                                                                 fontSize: 16.0,
                                                                                 letterSpacing: 0.0,
+                                                                                fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                               ),
                                                                         ),
                                                                         Transform
@@ -1444,6 +1565,8 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                                                 0.0,
                                                                             fontWeight:
                                                                                 FontWeight.w500,
+                                                                            fontStyle:
+                                                                                FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                           ),
                                                                     ),
                                                                   ].divide(SizedBox(
@@ -1577,6 +1700,10 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                                                 16.0,
                                                                             letterSpacing:
                                                                                 0.0,
+                                                                            fontWeight:
+                                                                                FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                            fontStyle:
+                                                                                FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                           ),
                                                                     ),
                                                                     Icon(
@@ -1623,6 +1750,8 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                                                 fontFamily: 'Anek Latin',
                                                                                 fontSize: 16.0,
                                                                                 letterSpacing: 0.0,
+                                                                                fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                               ),
                                                                         ),
                                                                         Transform
@@ -1659,6 +1788,8 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                                                 0.0,
                                                                             fontWeight:
                                                                                 FontWeight.w500,
+                                                                            fontStyle:
+                                                                                FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                           ),
                                                                     ),
                                                                   ].divide(SizedBox(
@@ -1791,6 +1922,10 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                                                 16.0,
                                                                             letterSpacing:
                                                                                 0.0,
+                                                                            fontWeight:
+                                                                                FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                            fontStyle:
+                                                                                FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                           ),
                                                                     ),
                                                                     Icon(
@@ -1837,6 +1972,8 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                                                 fontFamily: 'Anek Latin',
                                                                                 fontSize: 16.0,
                                                                                 letterSpacing: 0.0,
+                                                                                fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                               ),
                                                                         ),
                                                                         Transform
@@ -1974,6 +2111,10 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                                                 16.0,
                                                                             letterSpacing:
                                                                                 0.0,
+                                                                            fontWeight:
+                                                                                FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                            fontStyle:
+                                                                                FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                           ),
                                                                     ),
                                                                     Icon(
@@ -2020,6 +2161,8 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                                                 fontFamily: 'Anek Latin',
                                                                                 fontSize: 16.0,
                                                                                 letterSpacing: 0.0,
+                                                                                fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                               ),
                                                                         ),
                                                                         Transform
@@ -2056,6 +2199,8 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                                                 0.0,
                                                                             fontWeight:
                                                                                 FontWeight.w500,
+                                                                            fontStyle:
+                                                                                FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                           ),
                                                                     ),
                                                                   ].divide(SizedBox(
@@ -2138,6 +2283,14 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                       .primary,
                                               fontSize: 12.0,
                                               letterSpacing: 0.0,
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleSmall
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleSmall
+                                                      .fontStyle,
                                             ),
                                         elevation: 0.0,
                                         borderRadius:
@@ -2273,6 +2426,7 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                                                 fontSize: 14.0,
                                                                                 letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.normal,
+                                                                                fontStyle: FlutterFlowTheme.of(context).titleMedium.fontStyle,
                                                                               ),
                                                                         ),
                                                                       ),
@@ -2323,6 +2477,10 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                                                 18.0,
                                                                             letterSpacing:
                                                                                 0.0,
+                                                                            fontWeight:
+                                                                                FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                            fontStyle:
+                                                                                FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                           ),
                                                                     ),
                                                                   ),
@@ -2461,6 +2619,7 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                                                     fontSize: 14.0,
                                                                                     letterSpacing: 0.0,
                                                                                     fontWeight: FontWeight.normal,
+                                                                                    fontStyle: FlutterFlowTheme.of(context).titleMedium.fontStyle,
                                                                                   ),
                                                                             ),
                                                                             Padding(
@@ -2471,7 +2630,15 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                                                 hoverColor: Colors.transparent,
                                                                                 highlightColor: Colors.transparent,
                                                                                 onTap: () async {
-                                                                                  context.pushNamed(PlanRecommendadtionWidget.routeName);
+                                                                                  context.pushNamed(
+                                                                                    PlanRecommendadtionWidget.routeName,
+                                                                                    queryParameters: {
+                                                                                      'cutomerID': serializeParam(
+                                                                                        widget!.customerID,
+                                                                                        ParamType.String,
+                                                                                      ),
+                                                                                    }.withoutNulls,
+                                                                                  );
                                                                                 },
                                                                                 child: Material(
                                                                                   color: Colors.transparent,
@@ -2499,6 +2666,8 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                   fontFamily: 'Anek Latin',
                                                                                                   letterSpacing: 0.0,
+                                                                                                  fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                                 ),
                                                                                           ),
                                                                                           Align(
@@ -2622,11 +2791,11 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                     _model.textController.text,
                                               );
 
-                                              _model.addToAnswerFromBot((_model
-                                                          .answerOutput
-                                                          ?.jsonBody ??
-                                                      '')
-                                                  .toString());
+                                              _model.addToAnswerFromBot(
+                                                  functions.getChatResponse(
+                                                      (_model.answerOutput
+                                                              ?.jsonBody ??
+                                                          '')));
                                               safeSetState(() {
                                                 _model.textController?.clear();
                                               });
@@ -2655,6 +2824,11 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                       letterSpacing: 0.0,
                                                       fontWeight:
                                                           FontWeight.w600,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelMedium
+                                                              .fontStyle,
                                                     ),
                                             hintText: 'Ask me anything?',
                                             hintStyle:
@@ -2666,6 +2840,11 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                       letterSpacing: 0.0,
                                                       fontWeight:
                                                           FontWeight.w600,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelMedium
+                                                              .fontStyle,
                                                     ),
                                             enabledBorder: OutlineInputBorder(
                                               borderSide: BorderSide(
@@ -2724,6 +2903,14 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                 color: Color(0xFF797979),
                                                 fontSize: 14.0,
                                                 letterSpacing: 0.0,
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
                                               ),
                                           cursorColor:
                                               FlutterFlowTheme.of(context)

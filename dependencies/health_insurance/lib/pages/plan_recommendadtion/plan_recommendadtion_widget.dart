@@ -2,6 +2,7 @@ import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
+import '/index.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -12,7 +13,12 @@ import 'plan_recommendadtion_model.dart';
 export 'plan_recommendadtion_model.dart';
 
 class PlanRecommendadtionWidget extends StatefulWidget {
-  const PlanRecommendadtionWidget({super.key});
+  const PlanRecommendadtionWidget({
+    super.key,
+    required this.cutomerID,
+  });
+
+  final String? cutomerID;
 
   static String routeName = 'planRecommendadtion';
   static String routePath = '/planRecommendadtion';
@@ -49,6 +55,10 @@ class _PlanRecommendadtionWidgetState extends State<PlanRecommendadtionWidget> {
 
         if ((_model.plansFetched?.succeeded ?? true)) {
           _model.plansLoaded = true;
+          _model.selectedPlan = getJsonField(
+            (_model.plansFetched?.jsonBody ?? ''),
+            r'''$.data[0].productCode''',
+          ).toString().toString();
           safeSetState(() {});
         } else {
           ScaffoldMessenger.of(context).showSnackBar(
@@ -142,6 +152,12 @@ class _PlanRecommendadtionWidgetState extends State<PlanRecommendadtionWidget> {
                                   .override(
                                     fontFamily: 'Anek Latin',
                                     letterSpacing: 0.0,
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .titleMedium
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .titleMedium
+                                        .fontStyle,
                                   ),
                             ),
                           ),
@@ -192,6 +208,12 @@ class _PlanRecommendadtionWidgetState extends State<PlanRecommendadtionWidget> {
                                           FlutterFlowTheme.of(context).primary,
                                       fontSize: 12.0,
                                       letterSpacing: 0.0,
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .fontStyle,
                                     ),
                                 elevation: 0.0,
                                 borderRadius: BorderRadius.circular(20.0),
@@ -239,6 +261,16 @@ class _PlanRecommendadtionWidgetState extends State<PlanRecommendadtionWidget> {
                                                   color: Color(0xFF979CAE),
                                                   fontSize: 14.0,
                                                   letterSpacing: 0.0,
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
                                                 ),
                                           ),
                                           Container(
@@ -286,6 +318,14 @@ class _PlanRecommendadtionWidgetState extends State<PlanRecommendadtionWidget> {
                                                                       .secondaryBackground,
                                                                   letterSpacing:
                                                                       0.0,
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
                                                                 ),
                                                       ),
                                                     ),
@@ -311,6 +351,14 @@ class _PlanRecommendadtionWidgetState extends State<PlanRecommendadtionWidget> {
                                                                       'Anek Latin',
                                                                   letterSpacing:
                                                                       0.0,
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
                                                                 ),
                                                       ),
                                                       Text(
@@ -324,6 +372,14 @@ class _PlanRecommendadtionWidgetState extends State<PlanRecommendadtionWidget> {
                                                                       'Anek Latin',
                                                                   letterSpacing:
                                                                       0.0,
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
                                                                 ),
                                                       ),
                                                     ].divide(
@@ -342,6 +398,16 @@ class _PlanRecommendadtionWidgetState extends State<PlanRecommendadtionWidget> {
                                                   color: Color(0xFF979CAE),
                                                   fontSize: 14.0,
                                                   letterSpacing: 0.0,
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
                                                 ),
                                           ),
                                           Stack(
@@ -424,6 +490,14 @@ class _PlanRecommendadtionWidgetState extends State<PlanRecommendadtionWidget> {
                                                                       0xFF2E2E2E),
                                                                   letterSpacing:
                                                                       0.0,
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
                                                                 ),
                                                           ),
                                                           Text(
@@ -446,26 +520,58 @@ class _PlanRecommendadtionWidgetState extends State<PlanRecommendadtionWidget> {
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .normal,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
                                                                 ),
                                                           ),
                                                         ].divide(SizedBox(
                                                             height: 8.0)),
                                                       ),
-                                                      Flexible(
-                                                        child: Align(
-                                                          alignment:
-                                                              AlignmentDirectional(
-                                                                  1.0, 1.0),
-                                                          child: Icon(
-                                                            Icons
-                                                                .radio_button_checked,
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .primary,
-                                                            size: 24.0,
+                                                      if (getJsonField(
+                                                            (_model.plansFetched
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                            r'''$.data[0].productCode''',
+                                                          ) ==
+                                                          _model.selectedPlan)
+                                                        Flexible(
+                                                          child: Align(
+                                                            alignment:
+                                                                AlignmentDirectional(
+                                                                    1.0, 1.0),
+                                                            child: Icon(
+                                                              Icons
+                                                                  .radio_button_checked,
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .primary,
+                                                              size: 24.0,
+                                                            ),
                                                           ),
                                                         ),
-                                                      ),
+                                                      if (getJsonField(
+                                                            (_model.plansFetched
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                            r'''$.data[0].productCode''',
+                                                          ) !=
+                                                          _model.selectedPlan)
+                                                        Flexible(
+                                                          child: Align(
+                                                            alignment:
+                                                                AlignmentDirectional(
+                                                                    1.0, 1.0),
+                                                            child: Icon(
+                                                              Icons
+                                                                  .radio_button_off,
+                                                              color: Color(
+                                                                  0xFF2E2E2E),
+                                                              size: 24.0,
+                                                            ),
+                                                          ),
+                                                        ),
                                                     ].divide(
                                                         SizedBox(width: 16.0)),
                                                   ),
@@ -515,6 +621,14 @@ class _PlanRecommendadtionWidgetState extends State<PlanRecommendadtionWidget> {
                                                                     .secondaryBackground,
                                                                 letterSpacing:
                                                                     0.0,
+                                                                fontWeight: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontWeight,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
                                                               ),
                                                         ),
                                                       ),
@@ -546,6 +660,16 @@ class _PlanRecommendadtionWidgetState extends State<PlanRecommendadtionWidget> {
                                                   color: Color(0xFF979CAE),
                                                   fontSize: 14.0,
                                                   letterSpacing: 0.0,
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
                                                 ),
                                           ),
                                           Builder(
@@ -648,6 +772,12 @@ class _PlanRecommendadtionWidgetState extends State<PlanRecommendadtionWidget> {
                                                                             0xFF2E2E2E),
                                                                         letterSpacing:
                                                                             0.0,
+                                                                        fontWeight: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontWeight,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
                                                                       ),
                                                                 ),
                                                                 Text(
@@ -667,26 +797,83 @@ class _PlanRecommendadtionWidgetState extends State<PlanRecommendadtionWidget> {
                                                                             0.0,
                                                                         fontWeight:
                                                                             FontWeight.normal,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
                                                                       ),
                                                                 ),
                                                               ].divide(SizedBox(
                                                                   height: 8.0)),
                                                             ),
-                                                            Flexible(
-                                                              child: Align(
-                                                                alignment:
-                                                                    AlignmentDirectional(
-                                                                        1.0,
-                                                                        0.0),
-                                                                child: Icon(
-                                                                  Icons
-                                                                      .radio_button_off,
-                                                                  color: Color(
-                                                                      0xFF2E2E2E),
-                                                                  size: 24.0,
+                                                            if (getJsonField(
+                                                                  plansItem,
+                                                                  r'''$.productCode''',
+                                                                ) !=
+                                                                _model
+                                                                    .selectedPlan)
+                                                              Flexible(
+                                                                child: Align(
+                                                                  alignment:
+                                                                      AlignmentDirectional(
+                                                                          1.0,
+                                                                          0.0),
+                                                                  child:
+                                                                      InkWell(
+                                                                    splashColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    focusColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    hoverColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    highlightColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    onTap:
+                                                                        () async {
+                                                                      _model.selectedPlan =
+                                                                          getJsonField(
+                                                                        plansItem,
+                                                                        r'''$.productCode''',
+                                                                      ).toString();
+                                                                      safeSetState(
+                                                                          () {});
+                                                                    },
+                                                                    child: Icon(
+                                                                      Icons
+                                                                          .radio_button_off,
+                                                                      color: Color(
+                                                                          0xFF2E2E2E),
+                                                                      size:
+                                                                          24.0,
+                                                                    ),
+                                                                  ),
                                                                 ),
                                                               ),
-                                                            ),
+                                                            if (getJsonField(
+                                                                  plansItem,
+                                                                  r'''$.productCode''',
+                                                                ) ==
+                                                                _model
+                                                                    .selectedPlan)
+                                                              Flexible(
+                                                                child: Align(
+                                                                  alignment:
+                                                                      AlignmentDirectional(
+                                                                          1.0,
+                                                                          0.0),
+                                                                  child: Icon(
+                                                                    Icons
+                                                                        .radio_button_checked,
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primary,
+                                                                    size: 24.0,
+                                                                  ),
+                                                                ),
+                                                              ),
                                                           ].divide(SizedBox(
                                                               width: 16.0)),
                                                         ),
@@ -702,8 +889,24 @@ class _PlanRecommendadtionWidgetState extends State<PlanRecommendadtionWidget> {
                                       ),
                                     ),
                                     FFButtonWidget(
-                                      onPressed: () {
-                                        print('Button pressed ...');
+                                      onPressed: () async {
+                                        context.pushNamed(
+                                          ComparePlansWidget.routeName,
+                                          queryParameters: {
+                                            'customerID': serializeParam(
+                                              widget!.cutomerID,
+                                              ParamType.String,
+                                            ),
+                                            'planID': serializeParam(
+                                              _model.selectedPlan,
+                                              ParamType.String,
+                                            ),
+                                            'policyExpiryDate': serializeParam(
+                                              '',
+                                              ParamType.String,
+                                            ),
+                                          }.withoutNulls,
+                                        );
                                       },
                                       text: 'Continue',
                                       options: FFButtonOptions(
@@ -724,6 +927,14 @@ class _PlanRecommendadtionWidgetState extends State<PlanRecommendadtionWidget> {
                                               fontFamily: 'Anek Latin',
                                               color: Colors.white,
                                               letterSpacing: 0.0,
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleSmall
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleSmall
+                                                      .fontStyle,
                                             ),
                                         elevation: 0.0,
                                         borderRadius:

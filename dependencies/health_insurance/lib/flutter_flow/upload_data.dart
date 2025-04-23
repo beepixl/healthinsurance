@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:ff_commons/flutter_flow/upload_data_class.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
@@ -11,6 +10,8 @@ import 'package:video_player/video_player.dart';
 
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'flutter_flow_util.dart';
+import 'package:ff_commons/flutter_flow/upload_data_class.dart';
+export 'package:ff_commons/flutter_flow/upload_data_class.dart';
 
 const allowedFormats = {'image/png', 'image/jpeg', 'video/mp4', 'image/gif'};
 
@@ -63,7 +64,6 @@ Future<List<SelectedFile>?> selectMediaWithSourceBottomSheet({
                     textAlign: TextAlign.center,
                     style: GoogleFonts.getFont(
                       pickerFontFamily,
-                      // color: textColor.applyAlpha(0.65),
                       fontWeight: FontWeight.w500,
                       fontSize: 20,
                     ),

@@ -20,3 +20,9 @@ List<dynamic> parsedJsonString(String jsonString) {
     return [];
   }
 }
+
+String getChatResponse(dynamic jsonString) {
+  final List<dynamic> jsonList = jsonDecode('[$jsonString]');
+  final titles = jsonList.map((item) => item['title'] as String).toList();
+  return titles.join(', ');
+}
