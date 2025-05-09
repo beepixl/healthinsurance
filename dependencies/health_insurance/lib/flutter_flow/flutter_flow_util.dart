@@ -311,7 +311,7 @@ extension FFStringExt on String {
       case TextCapitalization.words:
         return split(' ').map(toBeginningOfSentenceCase).join(' ');
       case TextCapitalization.sentences:
-        return toBeginningOfSentenceCase(this);
+        return toBeginningOfSentenceCase(this) ?? '';
       case TextCapitalization.characters:
         return toUpperCase();
     }

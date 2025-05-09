@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
-import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/random_data_util.dart' as random_data;
 import '/index.dart';
 import 'dart:math' as math;
@@ -14,11 +13,11 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'policy_assit_model.dart';
-export 'policy_assit_model.dart';
+import 'policy_assit_copy_model.dart';
+export 'policy_assit_copy_model.dart';
 
-class PolicyAssitWidget extends StatefulWidget {
-  const PolicyAssitWidget({
+class PolicyAssitCopyWidget extends StatefulWidget {
+  const PolicyAssitCopyWidget({
     super.key,
     required this.policyName,
     required this.customerID,
@@ -27,26 +26,26 @@ class PolicyAssitWidget extends StatefulWidget {
   final String? policyName;
   final String? customerID;
 
-  static String routeName = 'policyAssit';
-  static String routePath = '/policyAssit';
+  static String routeName = 'policyAssitCopy';
+  static String routePath = '/policyAssitCopy';
   static void maybeSetRouteName(String? updatedRouteName) =>
       routeName = updatedRouteName ?? routeName;
   static void maybeSetRoutePath(String? updatedRoutePath) =>
       routePath = updatedRoutePath ?? routePath;
 
   @override
-  State<PolicyAssitWidget> createState() => _PolicyAssitWidgetState();
+  State<PolicyAssitCopyWidget> createState() => _PolicyAssitCopyWidgetState();
 }
 
-class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
-  late PolicyAssitModel _model;
+class _PolicyAssitCopyWidgetState extends State<PolicyAssitCopyWidget> {
+  late PolicyAssitCopyModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => PolicyAssitModel());
+    _model = createModel(context, () => PolicyAssitCopyModel());
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
@@ -174,22 +173,25 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                     10.0, 0.0, 0.0, 0.0),
                                             child: Text(
                                               'SimpliFi Policy Assist',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .titleMedium
-                                                      .override(
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .titleMedium
-                                                                .fontWeight,
-                                                        fontStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .titleMedium
-                                                                .fontStyle,
-                                                      ),
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .titleMedium
+                                                  .override(
+                                                    fontFamily: 'Anek Latin',
+                                                    color: Color(0xFF2E2E2E),
+                                                    fontSize: 14.0,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .titleMedium
+                                                            .fontWeight,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .titleMedium
+                                                            .fontStyle,
+                                                  ),
                                             ),
                                           ),
                                         ],
@@ -228,9 +230,8 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                   context)
                                               .titleMedium
                                               .override(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
+                                                fontFamily: 'Anek Latin',
+                                                color: Color(0xFF2E2E2E),
                                                 fontSize: 14.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight:
@@ -281,9 +282,8 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                   context)
                                               .titleMedium
                                               .override(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primary,
+                                                fontFamily: 'Anek Latin',
+                                                color: Color(0xFF2E2E2E),
                                                 fontSize: 14.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight:
@@ -313,649 +313,611 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
-                                        if (getJsonField(
-                                              (_model.topBenefitsOutput2
-                                                      ?.jsonBody ??
-                                                  ''),
-                                              r'''$.top_benefits[:]''',
-                                            ) !=
-                                            null)
-                                          InkWell(
-                                            splashColor: Colors.transparent,
-                                            focusColor: Colors.transparent,
-                                            hoverColor: Colors.transparent,
-                                            highlightColor: Colors.transparent,
-                                            onTap: () async {
-                                              _model.selectedPage = 1;
-                                              _model.selectedIndex = 0;
-                                              safeSetState(() {});
-                                            },
-                                            child: Container(
-                                              constraints: BoxConstraints(
-                                                minHeight: 60.0,
-                                                maxWidth: 110.0,
-                                              ),
-                                              decoration: BoxDecoration(
+                                        InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            _model.selectedPage = 1;
+                                            _model.selectedIndex = 0;
+                                            safeSetState(() {});
+                                          },
+                                          child: Container(
+                                            constraints: BoxConstraints(
+                                              minHeight: 60.0,
+                                              maxWidth: 110.0,
+                                            ),
+                                            decoration: BoxDecoration(
+                                              color: _model.selectedPage == 1
+                                                  ? Color(0xFFFEFEFE)
+                                                  : FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              borderRadius:
+                                                  BorderRadius.circular(16.0),
+                                              border: Border.all(
                                                 color: _model.selectedPage == 1
-                                                    ? Color(0xFFFEFEFE)
+                                                    ? FlutterFlowTheme.of(
+                                                            context)
+                                                        .primary
                                                     : FlutterFlowTheme.of(
                                                             context)
                                                         .secondaryBackground,
-                                                borderRadius:
-                                                    BorderRadius.circular(16.0),
-                                                border: Border.all(
-                                                  color: _model.selectedPage ==
-                                                          1
-                                                      ? FlutterFlowTheme.of(
-                                                              context)
-                                                          .primary
-                                                      : FlutterFlowTheme.of(
-                                                              context)
-                                                          .secondaryBackground,
-                                                ),
                                               ),
-                                              child: Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        8.0, 10.0, 8.0, 10.0),
-                                                child: Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceBetween,
-                                                  children: [
-                                                    Flexible(
-                                                      child: Row(
-                                                        mainAxisSize:
-                                                            MainAxisSize.min,
-                                                        children: [
-                                                          ClipRRect(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        0.0),
-                                                            child: SvgPicture
-                                                                .asset(
-                                                              'packages/health_insurance_backup_a1k0sy/assets/images/Vector.svg',
-                                                              width: 20.0,
-                                                              height: 20.0,
-                                                              fit: BoxFit.cover,
-                                                            ),
+                                            ),
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      8.0, 10.0, 8.0, 10.0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  Flexible(
+                                                    child: Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.min,
+                                                      children: [
+                                                        ClipRRect(
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      0.0),
+                                                          child:
+                                                              SvgPicture.asset(
+                                                            'packages/health_insurance_backup_a1k0sy/assets/images/Vector.svg',
+                                                            width: 20.0,
+                                                            height: 20.0,
+                                                            fit: BoxFit.cover,
                                                           ),
-                                                          Flexible(
-                                                            child: Text(
-                                                              'Top  Benefits',
-                                                              maxLines: 2,
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                    color: _model.selectedPage ==
-                                                                            1
-                                                                        ? FlutterFlowTheme.of(context)
-                                                                            .primary
-                                                                        : FlutterFlowTheme.of(context)
-                                                                            .primaryText,
-                                                                    fontSize:
-                                                                        14.0,
-                                                                    letterSpacing:
-                                                                        0.0,
-                                                                    fontWeight: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .fontWeight,
-                                                                    fontStyle: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .fontStyle,
-                                                                  ),
-                                                            ),
+                                                        ),
+                                                        Flexible(
+                                                          child: Text(
+                                                            'Top  Benefits',
+                                                            maxLines: 2,
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Anek Latin',
+                                                                  color: Color(
+                                                                      0xFF2E2E2E),
+                                                                  fontSize:
+                                                                      14.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .titleMedium
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .titleMedium
+                                                                      .fontStyle,
+                                                                ),
                                                           ),
-                                                        ].divide(SizedBox(
-                                                            width: 8.0)),
-                                                      ),
+                                                        ),
+                                                      ].divide(
+                                                          SizedBox(width: 8.0)),
                                                     ),
-                                                  ],
-                                                ),
+                                                  ),
+                                                ],
                                               ),
                                             ),
                                           ),
-                                        if (getJsonField(
-                                              (_model.topBenefitsOutput2
-                                                      ?.jsonBody ??
-                                                  ''),
-                                              r'''$.whats_covered[:]''',
-                                            ) !=
-                                            null)
-                                          InkWell(
-                                            splashColor: Colors.transparent,
-                                            focusColor: Colors.transparent,
-                                            hoverColor: Colors.transparent,
-                                            highlightColor: Colors.transparent,
-                                            onTap: () async {
-                                              _model.selectedPage = 2;
-                                              _model.selectedIndex = 0;
-                                              safeSetState(() {});
-                                            },
-                                            child: Container(
-                                              constraints: BoxConstraints(
-                                                minHeight: 60.0,
-                                                maxWidth: 130.0,
-                                              ),
-                                              decoration: BoxDecoration(
+                                        ),
+                                        InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            _model.selectedPage = 2;
+                                            _model.selectedIndex = 0;
+                                            safeSetState(() {});
+                                            _model.whatsCoveredOutput =
+                                                await QueryURLCall.call(
+                                              sessionId: _model.sessionID,
+                                              query: 'Whats Covered',
+                                              isChat: false,
+                                            );
+
+                                            safeSetState(() {});
+                                          },
+                                          child: Container(
+                                            constraints: BoxConstraints(
+                                              minHeight: 60.0,
+                                              maxWidth: 130.0,
+                                            ),
+                                            decoration: BoxDecoration(
+                                              color: _model.selectedPage == 2
+                                                  ? Color(0xFFFEFEFE)
+                                                  : FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              borderRadius:
+                                                  BorderRadius.circular(16.0),
+                                              border: Border.all(
                                                 color: _model.selectedPage == 2
-                                                    ? Color(0xFFFEFEFE)
+                                                    ? FlutterFlowTheme.of(
+                                                            context)
+                                                        .primary
                                                     : FlutterFlowTheme.of(
                                                             context)
                                                         .secondaryBackground,
-                                                borderRadius:
-                                                    BorderRadius.circular(16.0),
-                                                border: Border.all(
-                                                  color: _model.selectedPage ==
-                                                          2
-                                                      ? FlutterFlowTheme.of(
-                                                              context)
-                                                          .primary
-                                                      : FlutterFlowTheme.of(
-                                                              context)
-                                                          .secondaryBackground,
-                                                ),
                                               ),
-                                              child: Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        8.0, 8.0, 8.0, 8.0),
-                                                child: Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceBetween,
-                                                  children: [
-                                                    Flexible(
-                                                      child: Row(
-                                                        mainAxisSize:
-                                                            MainAxisSize.min,
-                                                        children: [
-                                                          ClipRRect(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        8.0),
-                                                            child: Image.asset(
-                                                              'packages/health_insurance_backup_a1k0sy/assets/images/Image-5.png',
-                                                              width: 36.0,
-                                                              height: 36.0,
-                                                              fit: BoxFit.cover,
-                                                            ),
+                                            ),
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(8.0, 8.0, 8.0, 8.0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  Flexible(
+                                                    child: Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.min,
+                                                      children: [
+                                                        ClipRRect(
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      8.0),
+                                                          child: Image.asset(
+                                                            'packages/health_insurance_backup_a1k0sy/assets/images/Image-5.png',
+                                                            width: 36.0,
+                                                            height: 36.0,
+                                                            fit: BoxFit.cover,
                                                           ),
-                                                          Flexible(
-                                                            child: Text(
-                                                              'Whats Covered?',
-                                                              maxLines: 2,
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                    color: _model.selectedPage ==
-                                                                            2
-                                                                        ? FlutterFlowTheme.of(context)
-                                                                            .primary
-                                                                        : FlutterFlowTheme.of(context)
-                                                                            .primaryText,
-                                                                    fontSize:
-                                                                        14.0,
-                                                                    letterSpacing:
-                                                                        0.0,
-                                                                    fontWeight: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .fontWeight,
-                                                                    fontStyle: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .fontStyle,
-                                                                  ),
-                                                            ),
+                                                        ),
+                                                        Flexible(
+                                                          child: Text(
+                                                            'Whats Covered?',
+                                                            maxLines: 2,
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Anek Latin',
+                                                                  color: Color(
+                                                                      0xFF2E2E2E),
+                                                                  fontSize:
+                                                                      14.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .titleMedium
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .titleMedium
+                                                                      .fontStyle,
+                                                                ),
                                                           ),
-                                                        ].divide(SizedBox(
-                                                            width: 8.0)),
-                                                      ),
+                                                        ),
+                                                      ].divide(
+                                                          SizedBox(width: 8.0)),
                                                     ),
-                                                  ],
-                                                ),
+                                                  ),
+                                                ],
                                               ),
                                             ),
                                           ),
-                                        if (getJsonField(
-                                              (_model.topBenefitsOutput2
-                                                      ?.jsonBody ??
-                                                  ''),
-                                              r'''$.whats_not_covered[:]''',
-                                            ) !=
-                                            null)
-                                          InkWell(
-                                            splashColor: Colors.transparent,
-                                            focusColor: Colors.transparent,
-                                            hoverColor: Colors.transparent,
-                                            highlightColor: Colors.transparent,
-                                            onTap: () async {
-                                              _model.selectedPage = 3;
-                                              _model.selectedIndex = 0;
-                                              safeSetState(() {});
-                                            },
-                                            child: Container(
-                                              constraints: BoxConstraints(
-                                                minHeight: 60.0,
-                                                maxWidth: 150.0,
-                                              ),
-                                              decoration: BoxDecoration(
+                                        ),
+                                        InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            _model.selectedPage = 3;
+                                            _model.selectedIndex = 0;
+                                            safeSetState(() {});
+                                            _model.whatsNotCoveredOutput =
+                                                await QueryURLCall.call(
+                                              sessionId: _model.sessionID,
+                                              query: 'Whats Not Covered',
+                                              isChat: false,
+                                            );
+
+                                            safeSetState(() {});
+                                          },
+                                          child: Container(
+                                            constraints: BoxConstraints(
+                                              minHeight: 60.0,
+                                              maxWidth: 150.0,
+                                            ),
+                                            decoration: BoxDecoration(
+                                              color: _model.selectedPage == 3
+                                                  ? Color(0xFFFEFEFE)
+                                                  : FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              borderRadius:
+                                                  BorderRadius.circular(16.0),
+                                              border: Border.all(
                                                 color: _model.selectedPage == 3
-                                                    ? Color(0xFFFEFEFE)
+                                                    ? FlutterFlowTheme.of(
+                                                            context)
+                                                        .primary
                                                     : FlutterFlowTheme.of(
                                                             context)
                                                         .secondaryBackground,
-                                                borderRadius:
-                                                    BorderRadius.circular(16.0),
-                                                border: Border.all(
-                                                  color: _model.selectedPage ==
-                                                          3
-                                                      ? FlutterFlowTheme.of(
-                                                              context)
-                                                          .primary
-                                                      : FlutterFlowTheme.of(
-                                                              context)
-                                                          .secondaryBackground,
-                                                ),
                                               ),
-                                              child: Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        8.0, 8.0, 8.0, 8.0),
-                                                child: Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceBetween,
-                                                  children: [
-                                                    Flexible(
-                                                      child: Row(
-                                                        mainAxisSize:
-                                                            MainAxisSize.min,
-                                                        children: [
-                                                          ClipRRect(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        8.0),
-                                                            child: Image.asset(
-                                                              'packages/health_insurance_backup_a1k0sy/assets/images/question_1.png',
-                                                              width: 36.0,
-                                                              height: 36.0,
-                                                              fit: BoxFit.cover,
-                                                            ),
+                                            ),
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(8.0, 8.0, 8.0, 8.0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  Flexible(
+                                                    child: Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.min,
+                                                      children: [
+                                                        ClipRRect(
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      8.0),
+                                                          child: Image.asset(
+                                                            'packages/health_insurance_backup_a1k0sy/assets/images/question_1.png',
+                                                            width: 36.0,
+                                                            height: 36.0,
+                                                            fit: BoxFit.cover,
                                                           ),
-                                                          Flexible(
-                                                            child: Text(
-                                                              'Whats not Covered?',
-                                                              maxLines: 2,
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                    color: _model.selectedPage ==
-                                                                            3
-                                                                        ? FlutterFlowTheme.of(context)
-                                                                            .primary
-                                                                        : FlutterFlowTheme.of(context)
-                                                                            .primaryText,
-                                                                    fontSize:
-                                                                        14.0,
-                                                                    letterSpacing:
-                                                                        0.0,
-                                                                    fontWeight: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .fontWeight,
-                                                                    fontStyle: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .fontStyle,
-                                                                  ),
-                                                            ),
+                                                        ),
+                                                        Flexible(
+                                                          child: Text(
+                                                            'Whats not Covered?',
+                                                            maxLines: 2,
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Anek Latin',
+                                                                  color: Color(
+                                                                      0xFF2E2E2E),
+                                                                  fontSize:
+                                                                      14.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .titleMedium
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .titleMedium
+                                                                      .fontStyle,
+                                                                ),
                                                           ),
-                                                        ].divide(SizedBox(
-                                                            width: 8.0)),
-                                                      ),
+                                                        ),
+                                                      ].divide(
+                                                          SizedBox(width: 8.0)),
                                                     ),
-                                                  ],
-                                                ),
+                                                  ),
+                                                ],
                                               ),
                                             ),
                                           ),
-                                        if (getJsonField(
-                                              (_model.topBenefitsOutput2
-                                                      ?.jsonBody ??
-                                                  ''),
-                                              r'''$.optional_covers[:]''',
-                                            ) !=
-                                            null)
-                                          InkWell(
-                                            splashColor: Colors.transparent,
-                                            focusColor: Colors.transparent,
-                                            hoverColor: Colors.transparent,
-                                            highlightColor: Colors.transparent,
-                                            onTap: () async {
-                                              _model.selectedPage = 4;
-                                              _model.selectedIndex = 0;
-                                              safeSetState(() {});
-                                            },
-                                            child: Container(
-                                              constraints: BoxConstraints(
-                                                minHeight: 60.0,
-                                                maxWidth: 150.0,
-                                              ),
-                                              decoration: BoxDecoration(
+                                        ),
+                                        InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            _model.selectedPage = 4;
+                                            _model.selectedIndex = 0;
+                                            safeSetState(() {});
+                                            _model.optionalCoversOutput =
+                                                await QueryURLCall.call(
+                                              sessionId: _model.sessionID,
+                                              query: 'Optional Covers',
+                                              isChat: false,
+                                            );
+
+                                            safeSetState(() {});
+                                          },
+                                          child: Container(
+                                            constraints: BoxConstraints(
+                                              minHeight: 60.0,
+                                              maxWidth: 150.0,
+                                            ),
+                                            decoration: BoxDecoration(
+                                              color: _model.selectedPage == 4
+                                                  ? Color(0xFFFEFEFE)
+                                                  : FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              borderRadius:
+                                                  BorderRadius.circular(16.0),
+                                              border: Border.all(
                                                 color: _model.selectedPage == 4
-                                                    ? Color(0xFFFEFEFE)
+                                                    ? FlutterFlowTheme.of(
+                                                            context)
+                                                        .primary
                                                     : FlutterFlowTheme.of(
                                                             context)
                                                         .secondaryBackground,
-                                                borderRadius:
-                                                    BorderRadius.circular(16.0),
-                                                border: Border.all(
-                                                  color: _model.selectedPage ==
-                                                          4
-                                                      ? FlutterFlowTheme.of(
-                                                              context)
-                                                          .primary
-                                                      : FlutterFlowTheme.of(
-                                                              context)
-                                                          .secondaryBackground,
-                                                ),
                                               ),
-                                              child: Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        8.0, 8.0, 8.0, 8.0),
-                                                child: Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceBetween,
-                                                  children: [
-                                                    Flexible(
-                                                      child: Row(
-                                                        mainAxisSize:
-                                                            MainAxisSize.min,
-                                                        children: [
-                                                          ClipRRect(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        8.0),
-                                                            child: Image.asset(
-                                                              'packages/health_insurance_backup_a1k0sy/assets/images/image_62.png',
-                                                              width: 36.0,
-                                                              height: 36.0,
-                                                              fit: BoxFit.cover,
-                                                            ),
+                                            ),
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(8.0, 8.0, 8.0, 8.0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  Flexible(
+                                                    child: Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.min,
+                                                      children: [
+                                                        ClipRRect(
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      8.0),
+                                                          child: Image.asset(
+                                                            'packages/health_insurance_backup_a1k0sy/assets/images/image_62.png',
+                                                            width: 36.0,
+                                                            height: 36.0,
+                                                            fit: BoxFit.cover,
                                                           ),
-                                                          Flexible(
-                                                            child: Text(
-                                                              'Optional Covers',
-                                                              maxLines: 2,
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                    color: _model.selectedPage ==
-                                                                            4
-                                                                        ? FlutterFlowTheme.of(context)
-                                                                            .primary
-                                                                        : FlutterFlowTheme.of(context)
-                                                                            .primaryText,
-                                                                    fontSize:
-                                                                        14.0,
-                                                                    letterSpacing:
-                                                                        0.0,
-                                                                    fontWeight: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .fontWeight,
-                                                                    fontStyle: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .fontStyle,
-                                                                  ),
-                                                            ),
+                                                        ),
+                                                        Flexible(
+                                                          child: Text(
+                                                            'Optional Covers',
+                                                            maxLines: 2,
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Anek Latin',
+                                                                  color: Color(
+                                                                      0xFF2E2E2E),
+                                                                  fontSize:
+                                                                      14.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .titleMedium
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .titleMedium
+                                                                      .fontStyle,
+                                                                ),
                                                           ),
-                                                        ].divide(SizedBox(
-                                                            width: 8.0)),
-                                                      ),
+                                                        ),
+                                                      ].divide(
+                                                          SizedBox(width: 8.0)),
                                                     ),
-                                                  ],
-                                                ),
+                                                  ),
+                                                ],
                                               ),
                                             ),
                                           ),
-                                        if (getJsonField(
-                                              (_model.topBenefitsOutput2
-                                                      ?.jsonBody ??
-                                                  ''),
-                                              r'''$.value_added_benefits[:]''',
-                                            ) !=
-                                            null)
-                                          InkWell(
-                                            splashColor: Colors.transparent,
-                                            focusColor: Colors.transparent,
-                                            hoverColor: Colors.transparent,
-                                            highlightColor: Colors.transparent,
-                                            onTap: () async {
-                                              _model.selectedPage = 5;
-                                              _model.selectedIndex = 0;
-                                              safeSetState(() {});
-                                            },
-                                            child: Container(
-                                              constraints: BoxConstraints(
-                                                minHeight: 60.0,
-                                                maxWidth: 150.0,
-                                              ),
-                                              decoration: BoxDecoration(
+                                        ),
+                                        InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            _model.selectedPage = 5;
+                                            _model.selectedIndex = 0;
+                                            safeSetState(() {});
+                                            _model.valueAddedBenefitsOutput1 =
+                                                await QueryURLCall.call(
+                                              sessionId: _model.sessionID,
+                                              query: 'Value Added Benefits',
+                                              isChat: false,
+                                            );
+
+                                            safeSetState(() {});
+                                          },
+                                          child: Container(
+                                            constraints: BoxConstraints(
+                                              minHeight: 60.0,
+                                              maxWidth: 150.0,
+                                            ),
+                                            decoration: BoxDecoration(
+                                              color: _model.selectedPage == 5
+                                                  ? Color(0xFFFEFEFE)
+                                                  : FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              borderRadius:
+                                                  BorderRadius.circular(16.0),
+                                              border: Border.all(
                                                 color: _model.selectedPage == 5
-                                                    ? Color(0xFFFEFEFE)
+                                                    ? FlutterFlowTheme.of(
+                                                            context)
+                                                        .primary
                                                     : FlutterFlowTheme.of(
                                                             context)
                                                         .secondaryBackground,
-                                                borderRadius:
-                                                    BorderRadius.circular(16.0),
-                                                border: Border.all(
-                                                  color: _model.selectedPage ==
-                                                          5
-                                                      ? FlutterFlowTheme.of(
-                                                              context)
-                                                          .primary
-                                                      : FlutterFlowTheme.of(
-                                                              context)
-                                                          .secondaryBackground,
-                                                ),
                                               ),
-                                              child: Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        8.0, 8.0, 8.0, 8.0),
-                                                child: Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceBetween,
-                                                  children: [
-                                                    Flexible(
-                                                      child: Row(
-                                                        mainAxisSize:
-                                                            MainAxisSize.min,
-                                                        children: [
-                                                          ClipRRect(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        8.0),
-                                                            child: Image.asset(
-                                                              'packages/health_insurance_backup_a1k0sy/assets/images/check-profile_1.png',
-                                                              width: 36.0,
-                                                              height: 36.0,
-                                                              fit: BoxFit.cover,
-                                                            ),
+                                            ),
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(8.0, 8.0, 8.0, 8.0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  Flexible(
+                                                    child: Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.min,
+                                                      children: [
+                                                        ClipRRect(
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      8.0),
+                                                          child: Image.asset(
+                                                            'packages/health_insurance_backup_a1k0sy/assets/images/check-profile_1.png',
+                                                            width: 36.0,
+                                                            height: 36.0,
+                                                            fit: BoxFit.cover,
                                                           ),
-                                                          Flexible(
-                                                            child: Text(
-                                                              'Value added Benefits',
-                                                              maxLines: 2,
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                    color: _model.selectedPage ==
-                                                                            5
-                                                                        ? FlutterFlowTheme.of(context)
-                                                                            .primary
-                                                                        : FlutterFlowTheme.of(context)
-                                                                            .primaryText,
-                                                                    fontSize:
-                                                                        14.0,
-                                                                    letterSpacing:
-                                                                        0.0,
-                                                                    fontWeight: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .fontWeight,
-                                                                    fontStyle: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .fontStyle,
-                                                                  ),
-                                                            ),
+                                                        ),
+                                                        Flexible(
+                                                          child: Text(
+                                                            'Value added Benefits',
+                                                            maxLines: 2,
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Anek Latin',
+                                                                  color: Color(
+                                                                      0xFF2E2E2E),
+                                                                  fontSize:
+                                                                      14.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .titleMedium
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .titleMedium
+                                                                      .fontStyle,
+                                                                ),
                                                           ),
-                                                        ].divide(SizedBox(
-                                                            width: 8.0)),
-                                                      ),
+                                                        ),
+                                                      ].divide(
+                                                          SizedBox(width: 8.0)),
                                                     ),
-                                                  ],
-                                                ),
+                                                  ),
+                                                ],
                                               ),
                                             ),
                                           ),
-                                        if (getJsonField(
-                                              (_model.topBenefitsOutput2
-                                                      ?.jsonBody ??
-                                                  ''),
-                                              r'''$.waiting_period[:]''',
-                                            ) !=
-                                            null)
-                                          InkWell(
-                                            splashColor: Colors.transparent,
-                                            focusColor: Colors.transparent,
-                                            hoverColor: Colors.transparent,
-                                            highlightColor: Colors.transparent,
-                                            onTap: () async {
-                                              _model.selectedPage = 6;
-                                              _model.selectedIndex = 0;
-                                              safeSetState(() {});
-                                            },
-                                            child: Container(
-                                              constraints: BoxConstraints(
-                                                minHeight: 60.0,
-                                                maxWidth: 150.0,
-                                              ),
-                                              decoration: BoxDecoration(
+                                        ),
+                                        InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            _model.selectedPage = 6;
+                                            _model.selectedIndex = 0;
+                                            safeSetState(() {});
+                                            _model.waitingPeriodOutput =
+                                                await QueryURLCall.call(
+                                              sessionId: _model.sessionID,
+                                              query: 'Waiting Period',
+                                              isChat: false,
+                                            );
+
+                                            safeSetState(() {});
+                                          },
+                                          child: Container(
+                                            constraints: BoxConstraints(
+                                              minHeight: 60.0,
+                                              maxWidth: 150.0,
+                                            ),
+                                            decoration: BoxDecoration(
+                                              color: _model.selectedPage == 6
+                                                  ? Color(0xFFFEFEFE)
+                                                  : FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              borderRadius:
+                                                  BorderRadius.circular(16.0),
+                                              border: Border.all(
                                                 color: _model.selectedPage == 6
-                                                    ? Color(0xFFFEFEFE)
+                                                    ? FlutterFlowTheme.of(
+                                                            context)
+                                                        .primary
                                                     : FlutterFlowTheme.of(
                                                             context)
                                                         .secondaryBackground,
-                                                borderRadius:
-                                                    BorderRadius.circular(16.0),
-                                                border: Border.all(
-                                                  color: _model.selectedPage ==
-                                                          6
-                                                      ? FlutterFlowTheme.of(
-                                                              context)
-                                                          .primary
-                                                      : FlutterFlowTheme.of(
-                                                              context)
-                                                          .secondaryBackground,
-                                                ),
                                               ),
-                                              child: Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        8.0, 8.0, 8.0, 8.0),
-                                                child: Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceBetween,
-                                                  children: [
-                                                    Flexible(
-                                                      child: Row(
-                                                        mainAxisSize:
-                                                            MainAxisSize.min,
-                                                        children: [
-                                                          ClipRRect(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        8.0),
-                                                            child: Image.asset(
-                                                              'packages/health_insurance_backup_a1k0sy/assets/images/Image-6.png',
-                                                              width: 36.0,
-                                                              height: 36.0,
-                                                              fit: BoxFit.cover,
-                                                            ),
+                                            ),
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(8.0, 8.0, 8.0, 8.0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  Flexible(
+                                                    child: Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.min,
+                                                      children: [
+                                                        ClipRRect(
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      8.0),
+                                                          child: Image.asset(
+                                                            'packages/health_insurance_backup_a1k0sy/assets/images/Image-6.png',
+                                                            width: 36.0,
+                                                            height: 36.0,
+                                                            fit: BoxFit.cover,
                                                           ),
-                                                          Flexible(
-                                                            child: Text(
+                                                        ),
+                                                        Flexible(
+                                                          child: Text(
                                                               'Waiting Period',
                                                               maxLines: 2,
                                                               style: FlutterFlowTheme
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    color: _model.selectedPage ==
-                                                                            6
-                                                                        ? FlutterFlowTheme.of(context)
-                                                                            .primary
-                                                                        : FlutterFlowTheme.of(context)
-                                                                            .primaryText,
+                                                                    fontFamily:
+                                                                        'Anek Latin',
+                                                                    color: Color(
+                                                                        0xFF2E2E2E),
                                                                     fontSize:
                                                                         14.0,
                                                                     letterSpacing:
                                                                         0.0,
                                                                     fontWeight: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .bodyMedium
+                                                                        .titleMedium
                                                                         .fontWeight,
                                                                     fontStyle: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .bodyMedium
+                                                                        .titleMedium
                                                                         .fontStyle,
-                                                                  ),
-                                                            ),
-                                                          ),
-                                                        ].divide(SizedBox(
-                                                            width: 8.0)),
-                                                      ),
+                                                                  )),
+                                                        ),
+                                                      ].divide(
+                                                          SizedBox(width: 8.0)),
                                                     ),
-                                                  ],
-                                                ),
+                                                  ),
+                                                ],
                                               ),
                                             ),
                                           ),
+                                        ),
                                       ].divide(SizedBox(width: 8.0)),
                                     ),
                                   ),
@@ -973,129 +935,108 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                           Column(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
-                                              if (getJsonField(
-                                                    (_model.topBenefitsOutput2
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                    r'''$.top_benefits[:]''',
-                                                  ) !=
-                                                  null)
-                                                Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  children: [
-                                                    ClipRRect(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              8.0),
-                                                      child: SvgPicture.asset(
-                                                        'packages/health_insurance_backup_a1k0sy/assets/images/Vector.svg',
-                                                        width: 20.0,
-                                                        height: 20.0,
-                                                        fit: BoxFit.cover,
-                                                      ),
+                                              Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  ClipRRect(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            8.0),
+                                                    child: SvgPicture.asset(
+                                                      'packages/health_insurance_backup_a1k0sy/assets/images/Vector.svg',
+                                                      width: 20.0,
+                                                      height: 20.0,
+                                                      fit: BoxFit.cover,
                                                     ),
-                                                    Text(
-                                                      'Top  Benefits',
+                                                  ),
+                                                  Text('Top  Benefits',
                                                       maxLines: 2,
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
                                                               .bodyMedium
                                                               .override(
+                                                                fontFamily:
+                                                                    'Anek Latin',
                                                                 color: Color(
-                                                                    0xFF14181B),
+                                                                    0xFF2E2E2E),
                                                                 fontSize: 14.0,
                                                                 letterSpacing:
                                                                     0.0,
                                                                 fontWeight: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyMedium
+                                                                    .titleMedium
                                                                     .fontWeight,
                                                                 fontStyle: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyMedium
+                                                                    .titleMedium
                                                                     .fontStyle,
-                                                              ),
-                                                    ),
-                                                  ].divide(
-                                                      SizedBox(width: 8.0)),
-                                                ),
-                                              if (getJsonField(
-                                                    (_model.topBenefitsOutput2
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                    r'''$.top_benefits[:]''',
-                                                  ) !=
-                                                  null)
-                                                Builder(
-                                                  builder: (context) {
-                                                    final benefits =
-                                                        getJsonField(
+                                                              )),
+                                                ].divide(SizedBox(width: 8.0)),
+                                              ),
+                                              Builder(
+                                                builder: (context) {
+                                                  final benefits =
                                                       (_model.topBenefitsOutput2
-                                                              ?.jsonBody ??
-                                                          ''),
-                                                      r'''$.top_benefits[:]''',
-                                                    ).toList();
-                                                    if (benefits.isEmpty) {
-                                                      return Container(
-                                                        width: double.infinity,
-                                                        height: 500.0,
-                                                        child:
-                                                            ProgressIndicatorWidget(),
-                                                      );
-                                                    }
+                                                                  ?.jsonBody ??
+                                                              '')
+                                                          .toList();
+                                                  if (benefits.isEmpty) {
+                                                    return Container(
+                                                      width: double.infinity,
+                                                      height: 500.0,
+                                                      child:
+                                                          ProgressIndicatorWidget(),
+                                                    );
+                                                  }
 
-                                                    return ListView.separated(
-                                                      padding:
-                                                          EdgeInsets.fromLTRB(
-                                                        0,
-                                                        0,
-                                                        0,
-                                                        200.0,
-                                                      ),
-                                                      shrinkWrap: true,
-                                                      scrollDirection:
-                                                          Axis.vertical,
-                                                      itemCount:
-                                                          benefits.length,
-                                                      separatorBuilder:
-                                                          (_, __) => SizedBox(
-                                                              height: 24.0),
-                                                      itemBuilder: (context,
-                                                          benefitsIndex) {
-                                                        final benefitsItem =
-                                                            benefits[
-                                                                benefitsIndex];
-                                                        return Column(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          crossAxisAlignment:
-                                                              CrossAxisAlignment
-                                                                  .start,
-                                                          children: [
-                                                            Row(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              children: [
-                                                                ClipRRect(
-                                                                  borderRadius:
-                                                                      BorderRadius
-                                                                          .circular(
-                                                                              8.0),
-                                                                  child:
-                                                                      SvgPicture
-                                                                          .asset(
-                                                                    'packages/health_insurance_backup_a1k0sy/assets/images/star.svg',
-                                                                    width: 20.0,
-                                                                    height:
-                                                                        20.0,
-                                                                    fit: BoxFit
-                                                                        .cover,
-                                                                  ),
+                                                  return ListView.separated(
+                                                    padding:
+                                                        EdgeInsets.fromLTRB(
+                                                      0,
+                                                      0,
+                                                      0,
+                                                      200.0,
+                                                    ),
+                                                    shrinkWrap: true,
+                                                    scrollDirection:
+                                                        Axis.vertical,
+                                                    itemCount: benefits.length,
+                                                    separatorBuilder: (_, __) =>
+                                                        SizedBox(height: 24.0),
+                                                    itemBuilder: (context,
+                                                        benefitsIndex) {
+                                                      final benefitsItem =
+                                                          benefits[
+                                                              benefitsIndex];
+                                                      return Column(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .start,
+                                                        children: [
+                                                          Row(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            children: [
+                                                              ClipRRect(
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            8.0),
+                                                                child:
+                                                                    SvgPicture
+                                                                        .asset(
+                                                                  'packages/health_insurance_backup_a1k0sy/assets/images/star.svg',
+                                                                  width: 20.0,
+                                                                  height: 20.0,
+                                                                  fit: BoxFit
+                                                                      .cover,
                                                                 ),
-                                                                Text(
+                                                              ),
+                                                              Text(
                                                                   getJsonField(
                                                                     benefitsItem,
                                                                     r'''$.title''',
@@ -1105,24 +1046,25 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
+                                                                        fontFamily:
+                                                                            'Anek Latin',
                                                                         color: Color(
-                                                                            0xFF14181B),
+                                                                            0xFF2E2E2E),
                                                                         fontSize:
                                                                             14.0,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
+                                                                            .titleMedium
                                                                             .fontWeight,
                                                                         fontStyle: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
+                                                                            .titleMedium
                                                                             .fontStyle,
-                                                                      ),
-                                                                ),
-                                                              ].divide(SizedBox(
-                                                                  width: 8.0)),
-                                                            ),
-                                                            Text(
+                                                                      )),
+                                                            ].divide(SizedBox(
+                                                                width: 8.0)),
+                                                          ),
+                                                          Text(
                                                               getJsonField(
                                                                 benefitsItem,
                                                                 r'''$.text''',
@@ -1131,57 +1073,41 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .anekLatin(
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .w500,
-                                                                      fontStyle: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .fontStyle,
-                                                                    ),
+                                                                    fontFamily:
+                                                                        'Anek Latin',
                                                                     color: Color(
-                                                                        0xFF767D93),
+                                                                        0xFF2E2E2E),
                                                                     fontSize:
                                                                         14.0,
                                                                     letterSpacing:
                                                                         0.0,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w500,
+                                                                    fontWeight: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .titleMedium
+                                                                        .fontWeight,
                                                                     fontStyle: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .bodyMedium
+                                                                        .titleMedium
                                                                         .fontStyle,
-                                                                  ),
-                                                            ),
-                                                          ],
-                                                        );
-                                                      },
-                                                      controller: _model
-                                                          .listViewController,
-                                                    );
-                                                  },
-                                                ),
+                                                                  )),
+                                                        ],
+                                                      );
+                                                    },
+                                                    controller: _model
+                                                        .listViewController,
+                                                  );
+                                                },
+                                              ),
                                             ].divide(SizedBox(height: 24.0)),
                                           ),
-                                        if ((_model.selectedPage == 2) &&
-                                            (getJsonField(
-                                                  (_model.topBenefitsOutput2
-                                                          ?.jsonBody ??
-                                                      ''),
-                                                  r'''$.whats_covered[:]''',
-                                                ) !=
-                                                null))
+                                        if (_model.selectedPage == 2)
                                           Builder(
                                             builder: (context) {
-                                              final whatsCovered = getJsonField(
-                                                (_model.topBenefitsOutput2
-                                                        ?.jsonBody ??
-                                                    ''),
-                                                r'''$.whats_covered[:]''',
-                                              ).toList();
+                                              final whatsCovered = (_model
+                                                          .whatsCoveredOutput
+                                                          ?.jsonBody ??
+                                                      '')
+                                                  .toList();
                                               if (whatsCovered.isEmpty) {
                                                 return Center(
                                                   child: Container(
@@ -1280,11 +1206,6 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                                               context)
                                                                           .bodyMedium
                                                                           .override(
-                                                                            font:
-                                                                                GoogleFonts.anekLatin(
-                                                                              fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                                                                              fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                            ),
                                                                             fontSize:
                                                                                 16.0,
                                                                             letterSpacing:
@@ -1336,10 +1257,6 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .bodyMedium
                                                                               .override(
-                                                                                font: GoogleFonts.anekLatin(
-                                                                                  fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                                                                                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                                ),
                                                                                 fontSize: 16.0,
                                                                                 letterSpacing: 0.0,
                                                                                 fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
@@ -1370,11 +1287,6 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                                               context)
                                                                           .bodyMedium
                                                                           .override(
-                                                                            font:
-                                                                                GoogleFonts.anekLatin(
-                                                                              fontWeight: FontWeight.w500,
-                                                                              fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                            ),
                                                                             color:
                                                                                 Color(0xFF797979),
                                                                             fontSize:
@@ -1403,23 +1315,14 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                               );
                                             },
                                           ),
-                                        if ((_model.selectedPage == 3) &&
-                                            (getJsonField(
-                                                  (_model.topBenefitsOutput2
-                                                          ?.jsonBody ??
-                                                      ''),
-                                                  r'''$.whats_not_covered[:]''',
-                                                ) !=
-                                                null))
+                                        if (_model.selectedPage == 3)
                                           Builder(
                                             builder: (context) {
-                                              final whatsNotCovered =
-                                                  getJsonField(
-                                                (_model.topBenefitsOutput2
-                                                        ?.jsonBody ??
-                                                    ''),
-                                                r'''$.whats_not_covered''',
-                                              ).toList();
+                                              final whatsNotCovered = (_model
+                                                          .whatsNotCoveredOutput
+                                                          ?.jsonBody ??
+                                                      '')
+                                                  .toList();
                                               if (whatsNotCovered.isEmpty) {
                                                 return Center(
                                                   child: Container(
@@ -1519,11 +1422,6 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                                               context)
                                                                           .bodyMedium
                                                                           .override(
-                                                                            font:
-                                                                                GoogleFonts.anekLatin(
-                                                                              fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                                                                              fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                            ),
                                                                             fontSize:
                                                                                 16.0,
                                                                             letterSpacing:
@@ -1575,10 +1473,6 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .bodyMedium
                                                                               .override(
-                                                                                font: GoogleFonts.anekLatin(
-                                                                                  fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                                                                                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                                ),
                                                                                 fontSize: 16.0,
                                                                                 letterSpacing: 0.0,
                                                                                 fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
@@ -1609,11 +1503,6 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                                               context)
                                                                           .bodyMedium
                                                                           .override(
-                                                                            font:
-                                                                                GoogleFonts.anekLatin(
-                                                                              fontWeight: FontWeight.w500,
-                                                                              fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                            ),
                                                                             color:
                                                                                 Color(0xFF797979),
                                                                             fontSize:
@@ -1642,24 +1531,15 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                               );
                                             },
                                           ),
-                                        if ((_model.selectedPage == 4) &&
-                                            (getJsonField(
-                                                  (_model.topBenefitsOutput2
-                                                          ?.jsonBody ??
-                                                      ''),
-                                                  r'''$.optional_covers[:]''',
-                                                ) !=
-                                                null))
+                                        if (_model.selectedPage == 4)
                                           Builder(
                                             builder: (context) {
-                                              final whatsNotCovered =
-                                                  getJsonField(
-                                                (_model.topBenefitsOutput2
-                                                        ?.jsonBody ??
-                                                    ''),
-                                                r'''$.optional_covers''',
-                                              ).toList();
-                                              if (whatsNotCovered.isEmpty) {
+                                              final optionalCovers = (_model
+                                                          .optionalCoversOutput
+                                                          ?.jsonBody ??
+                                                      '')
+                                                  .toList();
+                                              if (optionalCovers.isEmpty) {
                                                 return Center(
                                                   child: Container(
                                                     width: double.infinity,
@@ -1681,14 +1561,14 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                 shrinkWrap: true,
                                                 scrollDirection: Axis.vertical,
                                                 itemCount:
-                                                    whatsNotCovered.length,
+                                                    optionalCovers.length,
                                                 separatorBuilder: (_, __) =>
                                                     SizedBox(height: 8.0),
                                                 itemBuilder: (context,
-                                                    whatsNotCoveredIndex) {
-                                                  final whatsNotCoveredItem =
-                                                      whatsNotCovered[
-                                                          whatsNotCoveredIndex];
+                                                    optionalCoversIndex) {
+                                                  final optionalCoversItem =
+                                                      optionalCovers[
+                                                          optionalCoversIndex];
                                                   return InkWell(
                                                     splashColor:
                                                         Colors.transparent,
@@ -1700,7 +1580,7 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                         Colors.transparent,
                                                     onTap: () async {
                                                       _model.selectedIndex =
-                                                          whatsNotCoveredIndex;
+                                                          optionalCoversIndex;
                                                       safeSetState(() {});
                                                     },
                                                     child: Card(
@@ -1735,7 +1615,7 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                                 CrossAxisAlignment
                                                                     .start,
                                                             children: [
-                                                              if (whatsNotCoveredIndex !=
+                                                              if (optionalCoversIndex !=
                                                                   _model
                                                                       .selectedIndex)
                                                                 Row(
@@ -1751,18 +1631,13 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                                   children: [
                                                                     Text(
                                                                       getJsonField(
-                                                                        whatsNotCoveredItem,
+                                                                        optionalCoversItem,
                                                                         r'''$.title''',
                                                                       ).toString(),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
                                                                           .bodyMedium
                                                                           .override(
-                                                                            font:
-                                                                                GoogleFonts.anekLatin(
-                                                                              fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                                                                              fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                            ),
                                                                             fontSize:
                                                                                 16.0,
                                                                             letterSpacing:
@@ -1784,7 +1659,7 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                                     ),
                                                                   ],
                                                                 ),
-                                                              if (whatsNotCoveredIndex ==
+                                                              if (optionalCoversIndex ==
                                                                   _model
                                                                       .selectedIndex)
                                                                 Column(
@@ -1808,16 +1683,12 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                                       children: [
                                                                         Text(
                                                                           getJsonField(
-                                                                            whatsNotCoveredItem,
+                                                                            optionalCoversItem,
                                                                             r'''$.title''',
                                                                           ).toString(),
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .bodyMedium
                                                                               .override(
-                                                                                font: GoogleFonts.anekLatin(
-                                                                                  fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                                                                                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                                ),
                                                                                 fontSize: 16.0,
                                                                                 letterSpacing: 0.0,
                                                                                 fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
@@ -1841,18 +1712,13 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                                     ),
                                                                     Text(
                                                                       getJsonField(
-                                                                        whatsNotCoveredItem,
+                                                                        optionalCoversItem,
                                                                         r'''$.text''',
                                                                       ).toString(),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
                                                                           .bodyMedium
                                                                           .override(
-                                                                            font:
-                                                                                GoogleFonts.anekLatin(
-                                                                              fontWeight: FontWeight.w500,
-                                                                              fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                            ),
                                                                             color:
                                                                                 Color(0xFF797979),
                                                                             fontSize:
@@ -1881,24 +1747,15 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                               );
                                             },
                                           ),
-                                        if ((_model.selectedPage == 5) &&
-                                            (getJsonField(
-                                                  (_model.topBenefitsOutput2
-                                                          ?.jsonBody ??
-                                                      ''),
-                                                  r'''$.value_added_benefits[:]''',
-                                                ) !=
-                                                null))
+                                        if (_model.selectedPage == 5)
                                           Builder(
                                             builder: (context) {
-                                              final whatsNotCovered =
-                                                  getJsonField(
-                                                (_model.topBenefitsOutput2
-                                                        ?.jsonBody ??
-                                                    ''),
-                                                r'''$.value_added_benefits''',
-                                              ).toList();
-                                              if (whatsNotCovered.isEmpty) {
+                                              final valueAdded =
+                                                  (_model.valueAddedBenefitsOutput1
+                                                              ?.jsonBody ??
+                                                          '')
+                                                      .toList();
+                                              if (valueAdded.isEmpty) {
                                                 return Center(
                                                   child: Container(
                                                     width: double.infinity,
@@ -1919,15 +1776,14 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                 primary: false,
                                                 shrinkWrap: true,
                                                 scrollDirection: Axis.vertical,
-                                                itemCount:
-                                                    whatsNotCovered.length,
+                                                itemCount: valueAdded.length,
                                                 separatorBuilder: (_, __) =>
                                                     SizedBox(height: 8.0),
-                                                itemBuilder: (context,
-                                                    whatsNotCoveredIndex) {
-                                                  final whatsNotCoveredItem =
-                                                      whatsNotCovered[
-                                                          whatsNotCoveredIndex];
+                                                itemBuilder:
+                                                    (context, valueAddedIndex) {
+                                                  final valueAddedItem =
+                                                      valueAdded[
+                                                          valueAddedIndex];
                                                   return InkWell(
                                                     splashColor:
                                                         Colors.transparent,
@@ -1939,7 +1795,7 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                         Colors.transparent,
                                                     onTap: () async {
                                                       _model.selectedIndex =
-                                                          whatsNotCoveredIndex;
+                                                          valueAddedIndex;
                                                       safeSetState(() {});
                                                     },
                                                     child: Card(
@@ -1974,7 +1830,7 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                                 CrossAxisAlignment
                                                                     .start,
                                                             children: [
-                                                              if (whatsNotCoveredIndex !=
+                                                              if (valueAddedIndex !=
                                                                   _model
                                                                       .selectedIndex)
                                                                 Row(
@@ -1990,18 +1846,13 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                                   children: [
                                                                     Text(
                                                                       getJsonField(
-                                                                        whatsNotCoveredItem,
+                                                                        valueAddedItem,
                                                                         r'''$.title''',
                                                                       ).toString(),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
                                                                           .bodyMedium
                                                                           .override(
-                                                                            font:
-                                                                                GoogleFonts.anekLatin(
-                                                                              fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                                                                              fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                            ),
                                                                             fontSize:
                                                                                 16.0,
                                                                             letterSpacing:
@@ -2023,7 +1874,7 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                                     ),
                                                                   ],
                                                                 ),
-                                                              if (whatsNotCoveredIndex ==
+                                                              if (valueAddedIndex ==
                                                                   _model
                                                                       .selectedIndex)
                                                                 Column(
@@ -2047,16 +1898,12 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                                       children: [
                                                                         Text(
                                                                           getJsonField(
-                                                                            whatsNotCoveredItem,
+                                                                            valueAddedItem,
                                                                             r'''$.title''',
                                                                           ).toString(),
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .bodyMedium
                                                                               .override(
-                                                                                font: GoogleFonts.anekLatin(
-                                                                                  fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                                                                                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                                ),
                                                                                 fontSize: 16.0,
                                                                                 letterSpacing: 0.0,
                                                                                 fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
@@ -2078,32 +1925,6 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                                         ),
                                                                       ],
                                                                     ),
-                                                                    Text(
-                                                                      getJsonField(
-                                                                        whatsNotCoveredItem,
-                                                                        r'''$.text''',
-                                                                      ).toString(),
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .override(
-                                                                            font:
-                                                                                GoogleFonts.anekLatin(
-                                                                              fontWeight: FontWeight.w500,
-                                                                              fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                            ),
-                                                                            color:
-                                                                                Color(0xFF797979),
-                                                                            fontSize:
-                                                                                14.0,
-                                                                            letterSpacing:
-                                                                                0.0,
-                                                                            fontWeight:
-                                                                                FontWeight.w500,
-                                                                            fontStyle:
-                                                                                FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                          ),
-                                                                    ),
                                                                   ].divide(SizedBox(
                                                                       height:
                                                                           8.0)),
@@ -2120,23 +1941,14 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                               );
                                             },
                                           ),
-                                        if ((_model.selectedPage == 6) &&
-                                            (getJsonField(
-                                                  (_model.topBenefitsOutput2
-                                                          ?.jsonBody ??
-                                                      ''),
-                                                  r'''$.waiting_period[:]''',
-                                                ) !=
-                                                null))
+                                        if (_model.selectedPage == 6)
                                           Builder(
                                             builder: (context) {
-                                              final waitingPeriod =
-                                                  getJsonField(
-                                                (_model.topBenefitsOutput2
-                                                        ?.jsonBody ??
-                                                    ''),
-                                                r'''$.waiting_period[:]''',
-                                              ).toList();
+                                              final waitingPeriod = (_model
+                                                          .waitingPeriodOutput
+                                                          ?.jsonBody ??
+                                                      '')
+                                                  .toList();
 
                                               return ListView.separated(
                                                 padding: EdgeInsets.fromLTRB(
@@ -2225,11 +2037,6 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                                               context)
                                                                           .bodyMedium
                                                                           .override(
-                                                                            font:
-                                                                                GoogleFonts.anekLatin(
-                                                                              fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                                                                              fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                            ),
                                                                             fontSize:
                                                                                 16.0,
                                                                             letterSpacing:
@@ -2281,10 +2088,6 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .bodyMedium
                                                                               .override(
-                                                                                font: GoogleFonts.anekLatin(
-                                                                                  fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                                                                                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                                ),
                                                                                 fontSize: 16.0,
                                                                                 letterSpacing: 0.0,
                                                                                 fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
@@ -2315,11 +2118,6 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                                               context)
                                                                           .bodyMedium
                                                                           .override(
-                                                                            font:
-                                                                                GoogleFonts.anekLatin(
-                                                                              fontWeight: FontWeight.w500,
-                                                                              fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                            ),
                                                                             color:
                                                                                 Color(0xFF797979),
                                                                             fontSize:
@@ -2406,16 +2204,6 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                         textStyle: FlutterFlowTheme.of(context)
                                             .titleSmall
                                             .override(
-                                              font: GoogleFonts.anekLatin(
-                                                fontWeight:
-                                                    FlutterFlowTheme.of(context)
-                                                        .titleSmall
-                                                        .fontWeight,
-                                                fontStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .titleSmall
-                                                        .fontStyle,
-                                              ),
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primary,
@@ -2559,10 +2347,6 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .titleMedium
                                                                               .override(
-                                                                                font: GoogleFonts.anekLatin(
-                                                                                  fontWeight: FontWeight.normal,
-                                                                                  fontStyle: FlutterFlowTheme.of(context).titleMedium.fontStyle,
-                                                                                ),
                                                                                 color: Color(0xFF2E2E2E),
                                                                                 fontSize: 14.0,
                                                                                 letterSpacing: 0.0,
@@ -2610,11 +2394,6 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                                               context)
                                                                           .bodyMedium
                                                                           .override(
-                                                                            font:
-                                                                                GoogleFonts.anekLatin(
-                                                                              fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                                                                              fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                            ),
                                                                             color:
                                                                                 FlutterFlowTheme.of(context).primary,
                                                                             fontSize:
@@ -2758,10 +2537,6 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                                               ),
                                                                               textAlign: TextAlign.start,
                                                                               style: FlutterFlowTheme.of(context).titleMedium.override(
-                                                                                    font: GoogleFonts.anekLatin(
-                                                                                      fontWeight: FontWeight.normal,
-                                                                                      fontStyle: FlutterFlowTheme.of(context).titleMedium.fontStyle,
-                                                                                    ),
                                                                                     color: Color(0xFF333638),
                                                                                     fontSize: 14.0,
                                                                                     letterSpacing: 0.0,
@@ -2819,10 +2594,6 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                                                           Text(
                                                                                             'Compare with our plans',
                                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                  font: GoogleFonts.anekLatin(
-                                                                                                    fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                                                                                                    fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                                                  ),
                                                                                                   letterSpacing: 0.0,
                                                                                                   fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
                                                                                                   fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
@@ -2973,49 +2744,35 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                           obscureText: false,
                                           decoration: InputDecoration(
                                             isDense: true,
-                                            labelStyle: FlutterFlowTheme.of(
-                                                    context)
-                                                .labelMedium
-                                                .override(
-                                                  font: GoogleFonts.anekLatin(
-                                                    fontWeight: FontWeight.w600,
-                                                    fontStyle:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .labelMedium
-                                                            .fontStyle,
-                                                  ),
-                                                  color: Color(0xFF797979),
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.w600,
-                                                  fontStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .labelMedium
-                                                          .fontStyle,
-                                                ),
+                                            labelStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .labelMedium
+                                                    .override(
+                                                      color: Color(0xFF797979),
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.w600,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelMedium
+                                                              .fontStyle,
+                                                    ),
                                             hintText: 'Ask me anything?',
-                                            hintStyle: FlutterFlowTheme.of(
-                                                    context)
-                                                .labelMedium
-                                                .override(
-                                                  font: GoogleFonts.anekLatin(
-                                                    fontWeight: FontWeight.w600,
-                                                    fontStyle:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .labelMedium
-                                                            .fontStyle,
-                                                  ),
-                                                  color: Color(0xFF797979),
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.w600,
-                                                  fontStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .labelMedium
-                                                          .fontStyle,
-                                                ),
+                                            hintStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .labelMedium
+                                                    .override(
+                                                      color: Color(0xFF797979),
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.w600,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelMedium
+                                                              .fontStyle,
+                                                    ),
                                             enabledBorder: OutlineInputBorder(
                                               borderSide: BorderSide(
                                                 color: Color(0x00000000),
@@ -3069,18 +2826,6 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                font: GoogleFonts.anekLatin(
-                                                  fontWeight:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMedium
-                                                          .fontWeight,
-                                                  fontStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMedium
-                                                          .fontStyle,
-                                                ),
                                                 color: Color(0xFF797979),
                                                 fontSize: 14.0,
                                                 letterSpacing: 0.0,

@@ -41,6 +41,7 @@ class QueryURLCall {
   static Future<ApiCallResponse> call({
     String? sessionId = '',
     String? query = '',
+    required bool isChat,
   }) async {
     final ffApiRequestBody = '''
 {

@@ -4,11 +4,10 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
-import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/random_data_util.dart' as random_data;
 import '/index.dart';
 import 'dart:math' as math;
-import 'policy_assit_widget.dart' show PolicyAssitWidget;
+import 'policy_assit_copy_widget.dart' show PolicyAssitCopyWidget;
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -16,7 +15,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class PolicyAssitModel extends FlutterFlowModel<PolicyAssitWidget> {
+class PolicyAssitCopyModel extends FlutterFlowModel<PolicyAssitCopyWidget> {
   ///  Local state fields for this page.
 
   int? selectedPage = 1;
@@ -49,12 +48,22 @@ class PolicyAssitModel extends FlutterFlowModel<PolicyAssitWidget> {
 
   ///  State fields for stateful widgets in this page.
 
-  // Stores action output result for [Backend Call - API (queryURL)] action in policyAssit widget.
+  // Stores action output result for [Backend Call - API (queryURL)] action in policyAssitCopy widget.
   ApiCallResponse? topBenefitsOutput2;
   // State field(s) for Column widget.
   ScrollController? columnController1;
   // State field(s) for BenefitsSelection widget.
   ScrollController? benefitsSelection;
+  // Stores action output result for [Backend Call - API (queryURL)] action in whatsCovered widget.
+  ApiCallResponse? whatsCoveredOutput;
+  // Stores action output result for [Backend Call - API (queryURL)] action in whatsnotCovered widget.
+  ApiCallResponse? whatsNotCoveredOutput;
+  // Stores action output result for [Backend Call - API (queryURL)] action in optionalCovered widget.
+  ApiCallResponse? optionalCoversOutput;
+  // Stores action output result for [Backend Call - API (queryURL)] action in valueadded widget.
+  ApiCallResponse? valueAddedBenefitsOutput1;
+  // Stores action output result for [Backend Call - API (queryURL)] action in optionalCovered widget.
+  ApiCallResponse? waitingPeriodOutput;
   // State field(s) for Column widget.
   ScrollController? columnController2;
   // State field(s) for ListView widget.
@@ -63,9 +72,9 @@ class PolicyAssitModel extends FlutterFlowModel<PolicyAssitWidget> {
   ScrollController? whatsCoveredList;
   // State field(s) for WhatsNotCovered widget.
   ScrollController? whatsNotCovered;
-  // State field(s) for optional_covers widget.
+  // State field(s) for OptionalCovers widget.
   ScrollController? optionalCovers;
-  // State field(s) for value_added_benefits widget.
+  // State field(s) for ValueAddedBenefits widget.
   ScrollController? valueAddedBenefits;
   // State field(s) for WaitingPeriod widget.
   ScrollController? waitingPeriod;
