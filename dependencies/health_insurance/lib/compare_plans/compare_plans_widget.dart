@@ -333,52 +333,52 @@ class _ComparePlansWidgetState extends State<ComparePlansWidget> {
                                     ].divide(SizedBox(width: 16.0)),
                                   ),
                                 ),
-                                Expanded(
-                                  child: FFButtonWidget(
-                                    onPressed: () {
-                                      print('Button pressed ...');
-                                    },
-                                    text: 'Buy/Port Now',
-                                    options: FFButtonOptions(
-                                      width: double.infinity,
-                                      height: 32.0,
-                                      padding: EdgeInsets.all(8.0),
-                                      iconPadding:
-                                          EdgeInsetsDirectional.fromSTEB(
-                                              0.0, 0.0, 0.0, 0.0),
-                                      color:
-                                          FlutterFlowTheme.of(context).primary,
-                                      textStyle: FlutterFlowTheme.of(context)
-                                          .titleMedium
-                                          .override(
-                                            font: GoogleFonts.anekLatin(
-                                              fontWeight:
-                                                  FlutterFlowTheme.of(context)
-                                                      .titleMedium
-                                                      .fontWeight,
-                                              fontStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .titleMedium
-                                                      .fontStyle,
-                                            ),
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryBackground,
-                                            fontSize: 14.0,
-                                            letterSpacing: 0.0,
-                                            fontWeight:
-                                                FlutterFlowTheme.of(context)
-                                                    .titleMedium
-                                                    .fontWeight,
-                                            fontStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .titleMedium
-                                                    .fontStyle,
-                                          ),
-                                      elevation: 0.0,
-                                      borderRadius: BorderRadius.circular(24.0),
-                                    ),
-                                  ),
-                                ),
+                                // Expanded(
+                                //   child: FFButtonWidget(
+                                //     onPressed: () {
+                                //       print('Button pressed ...');
+                                //     },
+                                //     text: 'Buy/Port Now',
+                                //     options: FFButtonOptions(
+                                //       width: double.infinity,
+                                //       height: 32.0,
+                                //       padding: EdgeInsets.all(8.0),
+                                //       iconPadding:
+                                //           EdgeInsetsDirectional.fromSTEB(
+                                //               0.0, 0.0, 0.0, 0.0),
+                                //       color:
+                                //           FlutterFlowTheme.of(context).primary,
+                                //       textStyle: FlutterFlowTheme.of(context)
+                                //           .titleMedium
+                                //           .override(
+                                //             font: GoogleFonts.anekLatin(
+                                //               fontWeight:
+                                //                   FlutterFlowTheme.of(context)
+                                //                       .titleMedium
+                                //                       .fontWeight,
+                                //               fontStyle:
+                                //                   FlutterFlowTheme.of(context)
+                                //                       .titleMedium
+                                //                       .fontStyle,
+                                //             ),
+                                //             color: FlutterFlowTheme.of(context)
+                                //                 .secondaryBackground,
+                                //             fontSize: 14.0,
+                                //             letterSpacing: 0.0,
+                                //             fontWeight:
+                                //                 FlutterFlowTheme.of(context)
+                                //                     .titleMedium
+                                //                     .fontWeight,
+                                //             fontStyle:
+                                //                 FlutterFlowTheme.of(context)
+                                //                     .titleMedium
+                                //                     .fontStyle,
+                                //           ),
+                                //       elevation: 0.0,
+                                //       borderRadius: BorderRadius.circular(24.0),
+                                //     ),
+                                //   ),
+                                // ),
                               ].divide(SizedBox(width: 8.0)),
                             ),
                           ),
