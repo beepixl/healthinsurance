@@ -14,7 +14,7 @@ const _kPrivateApiFunctionName = 'ffPrivateApiCall';
 class UploadFileCall {
   static Future<ApiCallResponse> call({
     FFUploadedFile? file,
-    String? custID = '',
+    required String custID,
   }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'uploadFile',
@@ -44,7 +44,7 @@ class QueryURLCall {
     String? sessionId = '',
     String? query = '',
     bool? isChat,
-    String? custID = '',
+    required String custID,
   }) async {
     final ffApiRequestBody = '''
 {
@@ -78,7 +78,7 @@ class PlanDifferencesCall {
   static Future<ApiCallResponse> call({
     String? sessionId = '',
     String? query = '',
-    String? custID = '',
+    required String custID,
   }) async {
     final ffApiRequestBody = '''
 {

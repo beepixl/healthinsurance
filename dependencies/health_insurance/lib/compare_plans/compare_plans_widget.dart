@@ -54,7 +54,7 @@ class _ComparePlansWidgetState extends State<ComparePlansWidget> {
       _model.compareResultsOutput = await PlanDifferencesCall.call(
         sessionId: widget!.sessionID,
         query: widget!.planName,
-        custID: widget!.customerID,
+        custID: widget.customerID.toString(),
       );
 
       if ((_model.compareResultsOutput?.succeeded ?? true)) {

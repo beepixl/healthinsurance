@@ -23,6 +23,7 @@ class UploadPolicyModel extends FlutterFlowModel<UploadPolicyWidget> {
   ///  State fields for stateful widgets in this component.
 
   bool isDataUploading = false;
+
   FFUploadedFile uploadedLocalFile =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 

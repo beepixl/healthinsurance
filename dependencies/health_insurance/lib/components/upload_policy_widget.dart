@@ -17,12 +17,13 @@ import 'upload_policy_model.dart';
 export 'upload_policy_model.dart';
 
 class UploadPolicyWidget extends StatefulWidget {
-  const UploadPolicyWidget({
+  UploadPolicyWidget({
     super.key,
-    this.customerID,
+    required this.customerID,
   });
 
-  final String? customerID;
+  @required
+  String customerID;
 
   @override
   State<UploadPolicyWidget> createState() => _UploadPolicyWidgetState();
@@ -191,8 +192,8 @@ class _UploadPolicyWidgetState extends State<UploadPolicyWidget> {
                     }
 
                     _model.uploadedFileCopy = await UploadFileCall.call(
-                      file: _model.uploadedLocalFile,
-                    );
+                        file: _model.uploadedLocalFile,
+                        custID: widget.customerID.toString());
 
                     _model.showError = !getJsonField(
                       (_model.uploadedFileCopy?.jsonBody ?? ''),
