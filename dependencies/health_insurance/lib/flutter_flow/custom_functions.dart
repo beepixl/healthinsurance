@@ -26,3 +26,15 @@ String getChatResponse(dynamic jsonString) {
   final titles = jsonList.map((item) => item['title'] as String).toList();
   return titles.join(', ');
 }
+
+dynamic parsedJsonString2(String jsonString) {
+  try {
+    String cleaned = jsonString.replaceAll(r'\"', '"').replaceAll('\\n', '');
+    cleaned = '[$cleaned]';
+    final parsedList = jsonDecode(cleaned);
+    return parsedList;
+  } catch (e) {
+    print('Error parsing JSON: $e');
+    return [];
+  }
+}

@@ -16,9 +16,13 @@ class PlanRecommendadtionWidget extends StatefulWidget {
   const PlanRecommendadtionWidget({
     super.key,
     required this.cutomerID,
+    this.ourplanName,
+    required this.sessionId,
   });
 
   final String? cutomerID;
+  final String? ourplanName;
+  final String? sessionId;
 
   static String routeName = 'planRecommendadtion';
   static String routePath = '/planRecommendadtion';
@@ -58,6 +62,10 @@ class _PlanRecommendadtionWidgetState extends State<PlanRecommendadtionWidget> {
           _model.selectedPlan = getJsonField(
             (_model.plansFetched?.jsonBody ?? ''),
             r'''$.data[0].productCode''',
+          ).toString().toString();
+          _model.selectedPlanName = getJsonField(
+            (_model.plansFetched?.jsonBody ?? ''),
+            r'''$.data[0].planName''',
           ).toString().toString();
           safeSetState(() {});
         } else {
@@ -119,24 +127,33 @@ class _PlanRecommendadtionWidgetState extends State<PlanRecommendadtionWidget> {
                         children: [
                           Align(
                             alignment: AlignmentDirectional(0.0, 0.0),
-                            child: Container(
-                              width: 40.0,
-                              height: 40.0,
-                              decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                                borderRadius: BorderRadius.circular(7.0),
-                              ),
-                              child: Align(
-                                alignment: AlignmentDirectional(0.0, 0.0),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      8.0, 0.0, 0.0, 0.0),
-                                  child: Icon(
-                                    Icons.arrow_back_ios,
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryText,
-                                    size: 16.0,
+                            child: InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                context.safePop();
+                              },
+                              child: Container(
+                                width: 40.0,
+                                height: 40.0,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  borderRadius: BorderRadius.circular(7.0),
+                                ),
+                                child: Align(
+                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        8.0, 0.0, 0.0, 0.0),
+                                    child: Icon(
+                                      Icons.arrow_back_ios,
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                      size: 16.0,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -150,7 +167,14 @@ class _PlanRecommendadtionWidgetState extends State<PlanRecommendadtionWidget> {
                               style: FlutterFlowTheme.of(context)
                                   .titleMedium
                                   .override(
-                                    fontFamily: 'Anek Latin',
+                                    font: GoogleFonts.anekLatin(
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .titleMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .titleMedium
+                                          .fontStyle,
+                                    ),
                                     letterSpacing: 0.0,
                                     fontWeight: FlutterFlowTheme.of(context)
                                         .titleMedium
@@ -166,7 +190,7 @@ class _PlanRecommendadtionWidgetState extends State<PlanRecommendadtionWidget> {
                       ClipRRect(
                         borderRadius: BorderRadius.circular(0.0),
                         child: Image.asset(
-                          'packages/health_insurance/assets/images/01.png',
+                          'packages/health_insurance_backup_a1k0sy/assets/images/01.png',
                           width: 40.0,
                           height: 40.0,
                           fit: BoxFit.contain,
@@ -203,7 +227,14 @@ class _PlanRecommendadtionWidgetState extends State<PlanRecommendadtionWidget> {
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleSmall
                                     .override(
-                                      fontFamily: 'Anek Latin',
+                                      font: GoogleFonts.anekLatin(
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .fontStyle,
+                                      ),
                                       color:
                                           FlutterFlowTheme.of(context).primary,
                                       fontSize: 12.0,
@@ -257,7 +288,18 @@ class _PlanRecommendadtionWidgetState extends State<PlanRecommendadtionWidget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  fontFamily: 'Anek Latin',
+                                                  font: GoogleFonts.anekLatin(
+                                                    fontWeight:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMedium
+                                                            .fontWeight,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMedium
+                                                            .fontStyle,
+                                                  ),
                                                   color: Color(0xFF979CAE),
                                                   fontSize: 14.0,
                                                   letterSpacing: 0.0,
@@ -311,8 +353,17 @@ class _PlanRecommendadtionWidgetState extends State<PlanRecommendadtionWidget> {
                                                                     context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Anek Latin',
+                                                                  font: GoogleFonts
+                                                                      .anekLatin(
+                                                                    fontWeight: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontWeight,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontStyle,
+                                                                  ),
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .secondaryBackground,
@@ -341,14 +392,26 @@ class _PlanRecommendadtionWidgetState extends State<PlanRecommendadtionWidget> {
                                                             .start,
                                                     children: [
                                                       Text(
-                                                        'Bajaj Fin Guard',
+                                                        valueOrDefault<String>(
+                                                          widget!.ourplanName,
+                                                          'planName',
+                                                        ),
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Anek Latin',
+                                                                  font: GoogleFonts
+                                                                      .anekLatin(
+                                                                    fontWeight: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontWeight,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontStyle,
+                                                                  ),
                                                                   letterSpacing:
                                                                       0.0,
                                                                   fontWeight: FlutterFlowTheme.of(
@@ -368,8 +431,17 @@ class _PlanRecommendadtionWidgetState extends State<PlanRecommendadtionWidget> {
                                                                     context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Anek Latin',
+                                                                  font: GoogleFonts
+                                                                      .anekLatin(
+                                                                    fontWeight: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontWeight,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontStyle,
+                                                                  ),
                                                                   letterSpacing:
                                                                       0.0,
                                                                   fontWeight: FlutterFlowTheme.of(
@@ -394,269 +466,18 @@ class _PlanRecommendadtionWidgetState extends State<PlanRecommendadtionWidget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  fontFamily: 'Anek Latin',
-                                                  color: Color(0xFF979CAE),
-                                                  fontSize: 14.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMedium
-                                                          .fontWeight,
-                                                  fontStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMedium
-                                                          .fontStyle,
-                                                ),
-                                          ),
-                                          Stack(
-                                            children: [
-                                              Container(
-                                                width:
-                                                    MediaQuery.sizeOf(context)
-                                                            .width *
-                                                        1.0,
-                                                height: 72.0,
-                                                decoration: BoxDecoration(
-                                                  color: Color(0xFFF7F7F7),
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          24.0),
-                                                  border: Border.all(
-                                                    color: Colors.white,
+                                                  font: GoogleFonts.anekLatin(
+                                                    fontWeight:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMedium
+                                                            .fontWeight,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMedium
+                                                            .fontStyle,
                                                   ),
-                                                ),
-                                                child: Padding(
-                                                  padding: EdgeInsets.all(8.0),
-                                                  child: Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    children: [
-                                                      Container(
-                                                        width: 32.0,
-                                                        height: 32.0,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color:
-                                                              Color(0x19C7222A),
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      32.0),
-                                                        ),
-                                                        child: Padding(
-                                                          padding:
-                                                              EdgeInsets.all(
-                                                                  4.0),
-                                                          child: ClipRRect(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        0.0),
-                                                            child: SvgPicture
-                                                                .asset(
-                                                              'packages/health_insurance/assets/images/fi_10421473.svg',
-                                                              fit: BoxFit
-                                                                  .contain,
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      Column(
-                                                        mainAxisSize:
-                                                            MainAxisSize.min,
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .spaceBetween,
-                                                        crossAxisAlignment:
-                                                            CrossAxisAlignment
-                                                                .start,
-                                                        children: [
-                                                          Text(
-                                                            getJsonField(
-                                                              (_model.plansFetched
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                              r'''$.data[0].planName''',
-                                                            ).toString(),
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Anek Latin',
-                                                                  color: Color(
-                                                                      0xFF2E2E2E),
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .fontWeight,
-                                                                  fontStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .fontStyle,
-                                                                ),
-                                                          ),
-                                                          Text(
-                                                            getJsonField(
-                                                              (_model.plansFetched
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                              r'''$.data[0].productCode''',
-                                                            ).toString(),
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Anek Latin',
-                                                                  color: Color(
-                                                                      0xFF2E2E2E),
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .normal,
-                                                                  fontStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .fontStyle,
-                                                                ),
-                                                          ),
-                                                        ].divide(SizedBox(
-                                                            height: 8.0)),
-                                                      ),
-                                                      if (getJsonField(
-                                                            (_model.plansFetched
-                                                                    ?.jsonBody ??
-                                                                ''),
-                                                            r'''$.data[0].productCode''',
-                                                          ) ==
-                                                          _model.selectedPlan)
-                                                        Flexible(
-                                                          child: Align(
-                                                            alignment:
-                                                                AlignmentDirectional(
-                                                                    1.0, 1.0),
-                                                            child: Icon(
-                                                              Icons
-                                                                  .radio_button_checked,
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .primary,
-                                                              size: 24.0,
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      if (getJsonField(
-                                                            (_model.plansFetched
-                                                                    ?.jsonBody ??
-                                                                ''),
-                                                            r'''$.data[0].productCode''',
-                                                          ) !=
-                                                          _model.selectedPlan)
-                                                        Flexible(
-                                                          child: Align(
-                                                            alignment:
-                                                                AlignmentDirectional(
-                                                                    1.0, 1.0),
-                                                            child: Icon(
-                                                              Icons
-                                                                  .radio_button_off,
-                                                              color: Color(
-                                                                  0xFF2E2E2E),
-                                                              size: 24.0,
-                                                            ),
-                                                          ),
-                                                        ),
-                                                    ].divide(
-                                                        SizedBox(width: 16.0)),
-                                                  ),
-                                                ),
-                                              ),
-                                              Align(
-                                                alignment: AlignmentDirectional(
-                                                    1.0, -1.0),
-                                                child: Container(
-                                                  width: 120.0,
-                                                  height: 26.0,
-                                                  decoration: BoxDecoration(
-                                                    color: Color(0xFF1F874C),
-                                                    borderRadius:
-                                                        BorderRadius.only(
-                                                      bottomLeft:
-                                                          Radius.circular(24.0),
-                                                      bottomRight:
-                                                          Radius.circular(0.0),
-                                                      topLeft:
-                                                          Radius.circular(0.0),
-                                                      topRight:
-                                                          Radius.circular(24.0),
-                                                    ),
-                                                  ),
-                                                  child: Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .center,
-                                                    children: [
-                                                      Align(
-                                                        alignment:
-                                                            AlignmentDirectional(
-                                                                0.0, 0.0),
-                                                        child: Text(
-                                                          'Recommended',
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Anek Latin',
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondaryBackground,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .fontWeight,
-                                                                fontStyle: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .fontStyle,
-                                                              ),
-                                                        ),
-                                                      ),
-                                                      Icon(
-                                                        Icons.star_outlined,
-                                                        color: FlutterFlowTheme
-                                                                .of(context)
-                                                            .secondaryBackground,
-                                                        size: 13.0,
-                                                      ),
-                                                    ]
-                                                        .divide(SizedBox(
-                                                            width: 4.0))
-                                                        .addToStart(SizedBox(
-                                                            width: 8.0))
-                                                        .addToEnd(SizedBox(
-                                                            width: 8.0)),
-                                                  ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                          Text(
-                                            'Others',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Anek Latin',
                                                   color: Color(0xFF979CAE),
                                                   fontSize: 14.0,
                                                   letterSpacing: 0.0,
@@ -739,7 +560,7 @@ class _PlanRecommendadtionWidgetState extends State<PlanRecommendadtionWidget> {
                                                                   child:
                                                                       SvgPicture
                                                                           .asset(
-                                                                    'packages/health_insurance/assets/images/fi_10421473.svg',
+                                                                    'packages/health_insurance_backup_a1k0sy/assets/images/fi_10421473.svg',
                                                                     fit: BoxFit
                                                                         .contain,
                                                                   ),
@@ -766,8 +587,15 @@ class _PlanRecommendadtionWidgetState extends State<PlanRecommendadtionWidget> {
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Anek Latin',
+                                                                        font: GoogleFonts
+                                                                            .anekLatin(
+                                                                          fontWeight: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontWeight,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
                                                                         color: Color(
                                                                             0xFF2E2E2E),
                                                                         letterSpacing:
@@ -789,8 +617,14 @@ class _PlanRecommendadtionWidgetState extends State<PlanRecommendadtionWidget> {
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Anek Latin',
+                                                                        font: GoogleFonts
+                                                                            .anekLatin(
+                                                                          fontWeight:
+                                                                              FontWeight.normal,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
                                                                         color: Color(
                                                                             0xFF2E2E2E),
                                                                         letterSpacing:
@@ -837,6 +671,11 @@ class _PlanRecommendadtionWidgetState extends State<PlanRecommendadtionWidget> {
                                                                           getJsonField(
                                                                         plansItem,
                                                                         r'''$.productCode''',
+                                                                      ).toString();
+                                                                      _model.selectedPlanName =
+                                                                          getJsonField(
+                                                                        plansItem,
+                                                                        r'''$.planName''',
                                                                       ).toString();
                                                                       safeSetState(
                                                                           () {});
@@ -905,6 +744,14 @@ class _PlanRecommendadtionWidgetState extends State<PlanRecommendadtionWidget> {
                                               '',
                                               ParamType.String,
                                             ),
+                                            'planName': serializeParam(
+                                              _model.selectedPlanName,
+                                              ParamType.String,
+                                            ),
+                                            'sessionID': serializeParam(
+                                              widget!.sessionId,
+                                              ParamType.String,
+                                            ),
                                           }.withoutNulls,
                                         );
                                       },
@@ -924,7 +771,16 @@ class _PlanRecommendadtionWidgetState extends State<PlanRecommendadtionWidget> {
                                         textStyle: FlutterFlowTheme.of(context)
                                             .titleSmall
                                             .override(
-                                              fontFamily: 'Anek Latin',
+                                              font: GoogleFonts.anekLatin(
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .titleSmall
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .titleSmall
+                                                        .fontStyle,
+                                              ),
                                               color: Colors.white,
                                               letterSpacing: 0.0,
                                               fontWeight:

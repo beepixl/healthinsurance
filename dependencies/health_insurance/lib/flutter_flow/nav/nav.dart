@@ -74,6 +74,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               'cutomerID',
               ParamType.String,
             ),
+            ourplanName: params.getParam(
+              'ourplanName',
+              ParamType.String,
+            ),
+            sessionId: params.getParam(
+              'sessionId',
+              ParamType.String,
+            ),
           ),
         ),
         FFRoute(
@@ -90,6 +98,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             ),
             policyExpiryDate: params.getParam(
               'policyExpiryDate',
+              ParamType.String,
+            ),
+            planName: params.getParam(
+              'planName',
+              ParamType.String,
+            ),
+            sessionID: params.getParam(
+              'sessionID',
               ParamType.String,
             ),
           ),

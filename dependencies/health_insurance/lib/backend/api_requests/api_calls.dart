@@ -14,6 +14,7 @@ const _kPrivateApiFunctionName = 'ffPrivateApiCall';
 class UploadFileCall {
   static Future<ApiCallResponse> call({
     FFUploadedFile? file,
+    String? custID = '',
   }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'uploadFile',
@@ -25,6 +26,7 @@ class UploadFileCall {
       },
       params: {
         'file': file,
+        'cust_ID': custID,
       },
       bodyType: BodyType.MULTIPART,
       returnBody: true,
@@ -41,12 +43,15 @@ class QueryURLCall {
   static Future<ApiCallResponse> call({
     String? sessionId = '',
     String? query = '',
-    required bool isChat,
+    bool? isChat,
+    String? custID = '',
   }) async {
     final ffApiRequestBody = '''
 {
   "query": "${escapeStringForJson(query)}",
-  "session_id": "${escapeStringForJson(sessionId)}"
+  "session_id": "${escapeStringForJson(sessionId)}",
+  "ischat": ${isChat},
+  "cust_ID": "${escapeStringForJson(custID)}"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'queryURL',
@@ -67,6 +72,77 @@ class QueryURLCall {
       alwaysAllowBody: false,
     );
   }
+}
+
+class PlanDifferencesCall {
+  static Future<ApiCallResponse> call({
+    String? sessionId = '',
+    String? query = '',
+    String? custID = '',
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "query": "${escapeStringForJson(query)}",
+  "session_id": "${escapeStringForJson(sessionId)}",
+  "ischat": <isChat>,
+  "cust_ID": "${escapeStringForJson(custID)}"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'planDifferences',
+      apiUrl:
+          'https://abc-uat-doc-comparison-dkbpgggbcyewcqfs.centralindia-01.azurewebsites.net/plan_differences',
+      callType: ApiCallType.POST,
+      headers: {
+        'accept': 'application/json',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: true,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static List<String>? features(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].feature''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? selectedPlan(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].selected_plan''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? ourPlan(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].our_plan''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? betterCoverage(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].better_coverage''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 class FetchPlansCall {

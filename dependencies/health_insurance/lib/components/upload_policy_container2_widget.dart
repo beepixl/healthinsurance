@@ -79,7 +79,14 @@ class _UploadPolicyContainer2WidgetState
                             style: FlutterFlowTheme.of(context)
                                 .headlineSmall
                                 .override(
-                                  fontFamily: 'Anek Latin',
+                                  font: GoogleFonts.anekLatin(
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .headlineSmall
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .headlineSmall
+                                        .fontStyle,
+                                  ),
                                   fontSize: 14.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FlutterFlowTheme.of(context)
@@ -95,7 +102,14 @@ class _UploadPolicyContainer2WidgetState
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
-                                  fontFamily: 'Anek Latin',
+                                  font: GoogleFonts.anekLatin(
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
+                                  ),
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryText,
                                   letterSpacing: 0.0,
@@ -127,7 +141,7 @@ class _UploadPolicyContainer2WidgetState
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(48.0),
                             child: SvgPicture.asset(
-                              'packages/health_insurance/assets/images/Button.svg',
+                              'packages/health_insurance_backup_a1k0sy/assets/images/Button.svg',
                               width: 48.0,
                               height: 48.0,
                               fit: BoxFit.contain,
@@ -138,7 +152,12 @@ class _UploadPolicyContainer2WidgetState
                           'Upload',
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Anek Latin',
+                                    font: GoogleFonts.anekLatin(
+                                      fontWeight: FontWeight.w500,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
                                     color: Color(0xFF797979),
                                     fontSize: 14.0,
                                     letterSpacing: 0.0,

@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
-import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/random_data_util.dart' as random_data;
 import '/index.dart';
 import 'dart:math' as math;
@@ -20,12 +19,13 @@ export 'policy_assit_model.dart';
 class PolicyAssitWidget extends StatefulWidget {
   const PolicyAssitWidget({
     super.key,
-    required this.policyName,
-    required this.customerID,
-  });
+    String? policyName,
+    String? customerID,
+  })  : this.policyName = policyName ?? 'policyNmae',
+        this.customerID = customerID ?? 'customerID';
 
-  final String? policyName;
-  final String? customerID;
+  final String policyName;
+  final String customerID;
 
   static String routeName = 'policyAssit';
   static String routePath = '/policyAssit';
@@ -63,6 +63,7 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
         sessionId: _model.sessionID,
         query: 'Top Benefits',
         isChat: false,
+        custID: widget!.customerID,
       );
 
       safeSetState(() {});
@@ -174,22 +175,34 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                     10.0, 0.0, 0.0, 0.0),
                                             child: Text(
                                               'SimpliFi Policy Assist',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .titleMedium
-                                                      .override(
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .titleMedium
-                                                                .fontWeight,
-                                                        fontStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .titleMedium
-                                                                .fontStyle,
-                                                      ),
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .titleMedium
+                                                  .override(
+                                                    font: GoogleFonts.anekLatin(
+                                                      fontWeight:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleMedium
+                                                              .fontWeight,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleMedium
+                                                              .fontStyle,
+                                                    ),
+                                                    letterSpacing: 0.0,
+                                                    fontWeight:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .titleMedium
+                                                            .fontWeight,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .titleMedium
+                                                            .fontStyle,
+                                                  ),
                                             ),
                                           ),
                                         ],
@@ -228,6 +241,18 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                   context)
                                               .titleMedium
                                               .override(
+                                                font: GoogleFonts.anekLatin(
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .titleMedium
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .titleMedium
+                                                          .fontStyle,
+                                                ),
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondaryBackground,
@@ -281,6 +306,18 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                   context)
                                               .titleMedium
                                               .override(
+                                                font: GoogleFonts.anekLatin(
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .titleMedium
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .titleMedium
+                                                          .fontStyle,
+                                                ),
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .primary,
@@ -391,6 +428,17 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
+                                                                    font: GoogleFonts
+                                                                        .anekLatin(
+                                                                      fontWeight: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontWeight,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontStyle,
+                                                                    ),
                                                                     color: _model.selectedPage ==
                                                                             1
                                                                         ? FlutterFlowTheme.of(context)
@@ -498,6 +546,17 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
+                                                                    font: GoogleFonts
+                                                                        .anekLatin(
+                                                                      fontWeight: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontWeight,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontStyle,
+                                                                    ),
                                                                     color: _model.selectedPage ==
                                                                             2
                                                                         ? FlutterFlowTheme.of(context)
@@ -605,6 +664,17 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
+                                                                    font: GoogleFonts
+                                                                        .anekLatin(
+                                                                      fontWeight: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontWeight,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontStyle,
+                                                                    ),
                                                                     color: _model.selectedPage ==
                                                                             3
                                                                         ? FlutterFlowTheme.of(context)
@@ -712,6 +782,17 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
+                                                                    font: GoogleFonts
+                                                                        .anekLatin(
+                                                                      fontWeight: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontWeight,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontStyle,
+                                                                    ),
                                                                     color: _model.selectedPage ==
                                                                             4
                                                                         ? FlutterFlowTheme.of(context)
@@ -819,6 +900,17 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
+                                                                    font: GoogleFonts
+                                                                        .anekLatin(
+                                                                      fontWeight: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontWeight,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontStyle,
+                                                                    ),
                                                                     color: _model.selectedPage ==
                                                                             5
                                                                         ? FlutterFlowTheme.of(context)
@@ -926,6 +1018,17 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
+                                                                    font: GoogleFonts
+                                                                        .anekLatin(
+                                                                      fontWeight: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontWeight,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontStyle,
+                                                                    ),
                                                                     color: _model.selectedPage ==
                                                                             6
                                                                         ? FlutterFlowTheme.of(context)
@@ -1003,6 +1106,17 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                                   context)
                                                               .bodyMedium
                                                               .override(
+                                                                font: GoogleFonts
+                                                                    .anekLatin(
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
+                                                                ),
                                                                 color: Color(
                                                                     0xFF14181B),
                                                                 fontSize: 14.0,
@@ -1035,7 +1149,7 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                       (_model.topBenefitsOutput2
                                                               ?.jsonBody ??
                                                           ''),
-                                                      r'''$.top_benefits[:]''',
+                                                      r'''$.top_benefits''',
                                                     ).toList();
                                                     if (benefits.isEmpty) {
                                                       return Container(
@@ -1105,6 +1219,15 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
+                                                                        font: GoogleFonts
+                                                                            .anekLatin(
+                                                                          fontWeight: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontWeight,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
                                                                         color: Color(
                                                                             0xFF14181B),
                                                                         fontSize:
@@ -1180,7 +1303,7 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                 (_model.topBenefitsOutput2
                                                         ?.jsonBody ??
                                                     ''),
-                                                r'''$.whats_covered[:]''',
+                                                r'''$.whats_covered''',
                                               ).toList();
                                               if (whatsCovered.isEmpty) {
                                                 return Center(
@@ -2135,7 +2258,7 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                 (_model.topBenefitsOutput2
                                                         ?.jsonBody ??
                                                     ''),
-                                                r'''$.waiting_period[:]''',
+                                                r'''$.waiting_period''',
                                               ).toList();
 
                                               return ListView.separated(
@@ -2387,7 +2510,7 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                       onPressed: () async {
                                         _model.showChatbot = false;
                                         safeSetState(() {});
-                                        context.safePop();
+                                        Navigator.pop(context);
                                       },
                                       text: 'Go Back',
                                       icon: Icon(
@@ -2948,6 +3071,7 @@ class _PolicyAssitWidgetState extends State<PolicyAssitWidget> {
                                                 query:
                                                     _model.textController.text,
                                                 isChat: true,
+                                                custID: widget!.customerID,
                                               );
 
                                               _model.addToAnswerFromBot((_model

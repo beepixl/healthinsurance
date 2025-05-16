@@ -1,4 +1,5 @@
 import '/backend/api_requests/api_calls.dart';
+import '/components/disclaimer_widget.dart';
 import '/components/upload_policy_container2_widget.dart';
 import '/components/upload_policy_container_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -16,7 +17,12 @@ import 'upload_policy_model.dart';
 export 'upload_policy_model.dart';
 
 class UploadPolicyWidget extends StatefulWidget {
-  const UploadPolicyWidget({super.key});
+  const UploadPolicyWidget({
+    super.key,
+    this.customerID,
+  });
+
+  final String? customerID;
 
   @override
   State<UploadPolicyWidget> createState() => _UploadPolicyWidgetState();
@@ -77,7 +83,14 @@ class _UploadPolicyWidgetState extends State<UploadPolicyWidget> {
                 'UPLOAD POLICY PDF',
                 textAlign: TextAlign.center,
                 style: FlutterFlowTheme.of(context).headlineMedium.override(
-                      fontFamily: 'Anek Latin',
+                      font: GoogleFonts.anekLatin(
+                        fontWeight: FlutterFlowTheme.of(context)
+                            .headlineMedium
+                            .fontWeight,
+                        fontStyle: FlutterFlowTheme.of(context)
+                            .headlineMedium
+                            .fontStyle,
+                      ),
                       fontSize: 14.0,
                       letterSpacing: 0.0,
                       fontWeight: FlutterFlowTheme.of(context)
@@ -91,7 +104,11 @@ class _UploadPolicyWidgetState extends State<UploadPolicyWidget> {
                 'Get a comparison with best ABHI plans',
                 textAlign: TextAlign.center,
                 style: FlutterFlowTheme.of(context).titleMedium.override(
-                      fontFamily: 'Anek Latin',
+                      font: GoogleFonts.anekLatin(
+                        fontWeight: FontWeight.normal,
+                        fontStyle:
+                            FlutterFlowTheme.of(context).titleMedium.fontStyle,
+                      ),
                       color: FlutterFlowTheme.of(context).secondaryText,
                       fontSize: 14.0,
                       letterSpacing: 0.0,
@@ -119,7 +136,12 @@ class _UploadPolicyWidgetState extends State<UploadPolicyWidget> {
                       Text(
                         'Note: We are not storing the document',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Anek Latin',
+                              font: GoogleFonts.anekLatin(
+                                fontWeight: FontWeight.w500,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .fontStyle,
+                              ),
                               color: FlutterFlowTheme.of(context).secondary,
                               letterSpacing: 0.0,
                               fontWeight: FontWeight.w500,
@@ -132,105 +154,118 @@ class _UploadPolicyWidgetState extends State<UploadPolicyWidget> {
                   ),
                 ),
               ),
-              InkWell(
-                splashColor: Colors.transparent,
-                focusColor: Colors.transparent,
-                hoverColor: Colors.transparent,
-                highlightColor: Colors.transparent,
-                onTap: () async {
-                  final selectedFiles = await selectFiles(
-                    multiFile: false,
-                  );
-                  if (selectedFiles != null) {
-                    safeSetState(() => _model.isDataUploading = true);
-                    var selectedUploadedFiles = <FFUploadedFile>[];
+              if (!_model.showError)
+                InkWell(
+                  splashColor: Colors.transparent,
+                  focusColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  onTap: () async {
+                    final selectedFiles = await selectFiles(
+                      multiFile: false,
+                    );
+                    if (selectedFiles != null) {
+                      safeSetState(() => _model.isDataUploading = true);
+                      var selectedUploadedFiles = <FFUploadedFile>[];
 
-                    try {
-                      selectedUploadedFiles = selectedFiles
-                          .map((m) => FFUploadedFile(
-                                name: m.storagePath.split('/').last,
-                                bytes: m.bytes,
-                              ))
-                          .toList();
-                    } finally {
-                      _model.isDataUploading = false;
+                      try {
+                        selectedUploadedFiles = selectedFiles
+                            .map((m) => FFUploadedFile(
+                                  name: m.storagePath.split('/').last,
+                                  bytes: m.bytes,
+                                ))
+                            .toList();
+                      } finally {
+                        _model.isDataUploading = false;
+                      }
+                      if (selectedUploadedFiles.length ==
+                          selectedFiles.length) {
+                        safeSetState(() {
+                          _model.uploadedLocalFile =
+                              selectedUploadedFiles.first;
+                        });
+                      } else {
+                        safeSetState(() {});
+                        return;
+                      }
                     }
-                    if (selectedUploadedFiles.length == selectedFiles.length) {
-                      safeSetState(() {
-                        _model.uploadedLocalFile = selectedUploadedFiles.first;
-                      });
-                    } else {
-                      safeSetState(() {});
-                      return;
-                    }
-                  }
 
-                  _model.uploadedFileCopy = await UploadFileCall.call(
-                    file: _model.uploadedLocalFile,
-                  );
+                    _model.uploadedFileCopy = await UploadFileCall.call(
+                      file: _model.uploadedLocalFile,
+                    );
 
-                  context.pushNamed(
-                    PolicyAssitWidget.routeName,
-                    queryParameters: {
-                      'policyName': serializeParam(
-                        'Policy Name',
-                        ParamType.String,
-                      ),
-                      'customerID': serializeParam(
-                        'customerID',
-                        ParamType.String,
-                      ),
-                    }.withoutNulls,
-                  );
+                    _model.showError = !getJsonField(
+                      (_model.uploadedFileCopy?.jsonBody ?? ''),
+                      r'''$.success''',
+                    );
+                    safeSetState(() {});
 
-                  safeSetState(() {});
-                },
-                child: Container(
-                  width: MediaQuery.sizeOf(context).width * 1.0,
-                  height: 115.0,
-                  child: custom_widgets.DashedContainer(
+                    safeSetState(() {});
+                  },
+                  child: Container(
                     width: MediaQuery.sizeOf(context).width * 1.0,
                     height: 115.0,
-                    borderColor: Color(0xFFD5D7DE),
-                    borderWeight: 2.0,
-                    borderRadius: 24.0,
-                    borderSpacing: 6.0,
-                    innerContainer: () => UploadPolicyContainer2Widget(),
+                    child: custom_widgets.DashedContainer(
+                      width: MediaQuery.sizeOf(context).width * 1.0,
+                      height: 115.0,
+                      borderColor: Color(0xFFD5D7DE),
+                      borderWeight: 2.0,
+                      borderRadius: 24.0,
+                      borderSpacing: 6.0,
+                      innerContainer: () => UploadPolicyContainer2Widget(),
+                    ),
                   ),
                 ),
-              ),
               if (_model.showError)
-                Container(
-                  width: MediaQuery.sizeOf(context).width * 1.0,
-                  height: 115.0,
-                  child: custom_widgets.DashedContainer(
+                InkWell(
+                  splashColor: Colors.transparent,
+                  focusColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  onTap: () async {
+                    _model.showError = false;
+                    safeSetState(() {});
+                  },
+                  child: Container(
                     width: MediaQuery.sizeOf(context).width * 1.0,
                     height: 115.0,
-                    borderColor: FlutterFlowTheme.of(context).primary,
-                    borderWeight: 2.0,
-                    borderRadius: 24.0,
-                    borderSpacing: 6.0,
-                    innerContainer: () => UploadPolicyContainerWidget(),
+                    child: custom_widgets.DashedContainer(
+                      width: MediaQuery.sizeOf(context).width * 1.0,
+                      height: 115.0,
+                      borderColor: FlutterFlowTheme.of(context).primary,
+                      borderWeight: 2.0,
+                      borderRadius: 24.0,
+                      borderSpacing: 6.0,
+                      innerContainer: () => UploadPolicyContainerWidget(),
+                    ),
                   ),
                 ),
               FFButtonWidget(
-                onPressed: () async {
-                  Navigator.pop(context);
+                onPressed: _model.showError
+                    ? null
+                    : () async {
+                        Navigator.pop(context);
 
-                  context.pushNamed(
-                    PolicyAssitWidget.routeName,
-                    queryParameters: {
-                      'policyName': serializeParam(
-                        'Policy Name',
-                        ParamType.String,
-                      ),
-                      'customerID': serializeParam(
-                        'customerID',
-                        ParamType.String,
-                      ),
-                    }.withoutNulls,
-                  );
-                },
+                        context.pushNamed(
+                          PolicyAssitWidget.routeName,
+                          queryParameters: {
+                            'policyName': serializeParam(
+                              valueOrDefault<String>(
+                                getJsonField(
+                                  (_model.uploadedFileCopy?.jsonBody ?? ''),
+                                  r'''$.filename''',
+                                )?.toString(),
+                                'filename',
+                              ),
+                              ParamType.String,
+                            ),
+                            'customerID': serializeParam(
+                              widget!.customerID,
+                              ParamType.String,
+                            ),
+                          }.withoutNulls,
+                        );
+                      },
                 text: 'Submit',
                 options: FFButtonOptions(
                   width: double.infinity,
@@ -240,7 +275,14 @@ class _UploadPolicyWidgetState extends State<UploadPolicyWidget> {
                       EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                   color: FlutterFlowTheme.of(context).primary,
                   textStyle: FlutterFlowTheme.of(context).titleMedium.override(
-                        fontFamily: 'Anek Latin',
+                        font: GoogleFonts.anekLatin(
+                          fontWeight: FlutterFlowTheme.of(context)
+                              .titleMedium
+                              .fontWeight,
+                          fontStyle: FlutterFlowTheme.of(context)
+                              .titleMedium
+                              .fontStyle,
+                        ),
                         color: FlutterFlowTheme.of(context).secondaryBackground,
                         letterSpacing: 0.0,
                         fontWeight:
@@ -250,6 +292,44 @@ class _UploadPolicyWidgetState extends State<UploadPolicyWidget> {
                       ),
                   elevation: 0.0,
                   borderRadius: BorderRadius.circular(24.0),
+                ),
+              ),
+              InkWell(
+                splashColor: Colors.transparent,
+                focusColor: Colors.transparent,
+                hoverColor: Colors.transparent,
+                highlightColor: Colors.transparent,
+                onTap: () async {
+                  await showModalBottomSheet(
+                    isScrollControlled: true,
+                    backgroundColor: Colors.transparent,
+                    enableDrag: false,
+                    context: context,
+                    builder: (context) {
+                      return Padding(
+                        padding: MediaQuery.viewInsetsOf(context),
+                        child: DisclaimerWidget(),
+                      );
+                    },
+                  ).then((value) => safeSetState(() {}));
+                },
+                child: Text(
+                  'Disclaimer',
+                  textAlign: TextAlign.center,
+                  style: FlutterFlowTheme.of(context).titleMedium.override(
+                        font: GoogleFonts.anekLatin(
+                          fontWeight: FontWeight.w600,
+                          fontStyle: FlutterFlowTheme.of(context)
+                              .titleMedium
+                              .fontStyle,
+                        ),
+                        color: FlutterFlowTheme.of(context).primary,
+                        fontSize: 14.0,
+                        letterSpacing: 0.0,
+                        fontWeight: FontWeight.w600,
+                        fontStyle:
+                            FlutterFlowTheme.of(context).titleMedium.fontStyle,
+                      ),
                 ),
               ),
             ].divide(SizedBox(height: 24.0)),

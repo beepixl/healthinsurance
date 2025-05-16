@@ -19,6 +19,10 @@ class PlanRecommendadtionModel
 
   String? selectedPlan;
 
+  String? selectedPlanName;
+
+  String sessionID = 'string';
+
   ///  State fields for stateful widgets in this page.
 
   // Stores action output result for [Backend Call - API (generateToken)] action in planRecommendadtion widget.
