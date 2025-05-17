@@ -332,27 +332,15 @@ extension TextStyleHelper on TextStyle {
     double? lineHeight,
     List<Shadow>? shadows,
   }) =>
-      useGoogleFonts
-          ? GoogleFonts.getFont(
-              'Roboto',
-              color: color ?? this.color,
-              fontSize: fontSize ?? this.fontSize,
-              letterSpacing: letterSpacing ?? this.letterSpacing,
-              fontWeight: fontWeight ?? this.fontWeight,
-              fontStyle: fontStyle ?? this.fontStyle,
-              decoration: decoration,
-              height: lineHeight,
-              shadows: shadows,
-            )
-          : copyWith(
-              fontFamily: 'Roboto',
-              color: color,
-              fontSize: fontSize,
-              letterSpacing: letterSpacing,
-              fontWeight: fontWeight,
-              fontStyle: fontStyle,
-              decoration: decoration,
-              height: lineHeight,
-              shadows: shadows,
-            );
+      copyWith(
+        fontFamily: 'Roboto',
+        color: color,
+        fontSize: fontSize,
+        letterSpacing: letterSpacing,
+        fontWeight: fontWeight,
+        fontStyle: fontStyle,
+        decoration: decoration,
+        height: lineHeight,
+        shadows: shadows,
+      );
 }
