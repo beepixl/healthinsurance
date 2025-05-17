@@ -334,7 +334,7 @@ extension TextStyleHelper on TextStyle {
   }) =>
       useGoogleFonts
           ? GoogleFonts.getFont(
-              fontFamily!,
+              'Roboto',
               color: color ?? this.color,
               fontSize: fontSize ?? this.fontSize,
               letterSpacing: letterSpacing ?? this.letterSpacing,
@@ -345,7 +345,7 @@ extension TextStyleHelper on TextStyle {
               shadows: shadows,
             )
           : copyWith(
-              fontFamily: fontFamily,
+              fontFamily: 'Roboto',
               color: color,
               fontSize: fontSize,
               letterSpacing: letterSpacing,

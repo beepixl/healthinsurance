@@ -12,7 +12,6 @@ void main() {
 
 class MyApp extends StatelessWidget {
   final AppStateNotifier appState;
-  
 
   MyApp({super.key, required this.appState}) {
     //  _router = createRouter(appState);

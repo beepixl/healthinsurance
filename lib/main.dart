@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:health_insurance/components/upload_policy_widget.dart';
 import 'package:health_insurance/flutter_flow/flutter_flow_util.dart';
 import 'package:health_insurance/flutter_flow/nav/nav.dart';
 import 'package:health_insurance/pages/home_page/home_page_widget.dart';
@@ -114,7 +115,9 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        onPressed: () {
+          UploadPolicyWidget(customerID: "CustomerID");
+        },
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
